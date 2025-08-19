@@ -1,0 +1,273 @@
+body {
+      font-family: sans-serif;
+      background: #00CF31;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .success {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #00CF31; /* semi-transparent green */
+  z-index: 9999;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.success .content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.success .content img {
+    margin-top: -42px;
+  width: 80px; /* Adjust size as needed */
+  margin-bottom: 20px;
+}
+
+.success .content h1 {
+  margin: 0 0 10px;
+  font-size: 2em;
+}
+
+.success .content p {
+  margin: 0;
+  font-size: 1.2em;
+}
+
+
+.success-img { 
+  height: 64px; 
+  width: 64px;
+  animation: appear 1.1s ease-out;
+}
+
+@keyframes appear {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+
+.content {
+    margin-top: -92px;
+      animation: rise-up 0.9s ease-out;
+ }
+
+ @keyframes rise-up {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+
+    .top-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 60px;
+  background: #00cf3000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 16px;
+  color: white;
+  z-index: 999;
+}
+
+.top-nav i {
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.nav-center span {
+  font-size: 18px;
+  font-weight: bold;
+  color: white;
+}
+
+.nav-left,
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+
+    .cashapp-container {
+      background: #00CF31;
+      border-radius: 10px;
+      padding: 0px;
+      margin-top: -15vh;
+<!--       box-shadow: 0 4px 10px rgba(53, 16, 16, 0.15); -->
+      width: 100vw;
+      text-align: center;
+    }
+
+    .display {
+      font-size: 6em;
+      margin-bottom: 0px;
+      margin-top: 10vh;
+      border-bottom: 2px solid #00CF31;
+      padding: 4px;
+      font-family: Impact, Haettenschweiler, 'Arial Bold', sans-serif;
+      color: #ffffff;
+    }
+
+    .keypad {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin-top: 0;
+    }
+
+    .key {
+      padding: 15px;
+      background-color: #00CF31;
+      border: none;
+      color: white;
+      border-radius: 5px;
+      font-size: 1.5em;
+      cursor: pointer;
+      transition: background font-size 0.4s ease;
+    }
+
+    .key:active {
+      font-size: 1.8em;
+      border-top-left-radius: 20%;
+      border-top-right-radius: 20%;
+      background-color: #00c52e6e;
+      border-bottom: 4px solid #02b62c;
+    }
+
+    .zero {
+      padding: 15px;
+      background-color: #00CF31;
+      border: none;
+      border-radius: 5px;
+      font-size: 1.5em;
+      cursor: pointer;
+      transition: background 0.2s ease;
+    }
+
+    .back {
+      background-color: #00CF31;
+      color: white;
+    }
+
+
+
+        .button-container {
+        margin-top: 10px;
+        align-self: center;
+        max-width: 580px;
+      display: flex;
+      gap: 20px;
+    }
+
+    .cash-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      padding: 18px 34px;
+      border-radius: 30px;
+      font-size: 18px;
+      font-weight: bold;
+      width: 42vw;
+      cursor: pointer;
+      border: none;
+      transition: all 0.2s ease;
+    }
+
+    .balance-button {
+            padding: 10px 32px;
+      border-radius: 30px;
+      font-size: 18px;
+      font-weight: bold;
+      cursor: pointer;
+      border: none;
+      color: white;
+      margin-bottom: -2vh;
+      background-color: #00bd2c;
+    }
+
+    .btn-request {
+      background-color: #00bd2c;
+      color: #ffffff;
+    }
+
+       .btn-request::after {
+      background-color: #000000;
+      color: #ffffff;
+    }
+
+    .btn-request:hover {
+      background-color: #e6e6e6;
+    }
+
+    .btn-pay {
+      background-color: #00d54b;
+      color: #000;
+    }
+
+    .btn-pay:hover {
+      background-color: #00b940;
+    }
+
+        .btn-pay::after {
+      background-color: #00250d;
+    }
+
+
+    
+    .bottom-nav {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      margin-top: 0px;
+      background: #00CF31;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      padding: 10px 0;
+    }
+
+    .nav-item {
+      color: white;
+      text-align: center;
+      font-size: 42px;
+    }
+
+    .nav-item i {
+      font-size: 20px;
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    .nav-item.active {
+      color: #00d54b;
+    }
+
+    .nav-img {
+      height: 4vh;
+    }
