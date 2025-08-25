@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Play Store App Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #1e1e1e;
+        }
+
+        h1, h2, p {
+            color: white;
+        }
+
+        .app-page {
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #181818;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .app-header {
+            display: flex;
+            padding: 20px;
+            border-bottom: 1px solid #000000;
+        }
+
+        .app-icon {
+            width: 64px;
+            height: 64px;
+            margin-right: 20px;
+        }
+
+        .app-info {
+            flex-grow: 1;
+        }
+
+        .app-name {
+            font-size: 24px;
+            font-weight: bold;
+            margin: 0;
+        }
+
+        .app-category {
+            font-size: 14px;
+            color: #888;
+            margin-top: 5px;
+        }
+
+        .app-rating {
+            margin-top: 10px;
+            font-size: 14px;
+            color: #4caf50;
+        }
+
+        .app-description {
+            padding: 20px;
+            border-bottom: 1px solid #000000;
+        }
+
+        .app-description h2 {
+            font-size: 18px;
+            font-weight: bold;
+            margin: 0;
+        }
+
+        .app-buttons {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .install-button {
+            background-color: #000000;
+            color: white;
+            font-size: 16px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        .install-button:hover {
+            background-color: #000000;
+        }
+
+        .footer {
+            padding: 20px;
+            text-align: center;
+            background-color: #151515;
+            font-size: 12px;
+            color: #888;
+        }
+
+        /* Screenshots section */
+        .screenshots {
+            padding: 20px;
+            border-bottom: 1px solid #000000;
+        }
+
+        .screenshots h2 {
+            font-size: 18px;
+            font-weight: bold;
+            color: white;
+            margin-bottom: 10px;
+        }
+
+        .screenshots-wrapper {
+            display: flex;
+            overflow-x: auto;
+            padding-bottom: 4vh;
+            scroll-snap-type: x mandatory;
+            gap: 10px;
+        }
+
+        .screenshot {
+            height: 150px;
+            object-fit: cover;
+            border-radius: 8px;
+            scroll-snap-align: start;
+        }
+
+        /* Reviews Section */
+        .reviews-section {
+            padding: 20px;
+            border-top: 1px solid #000000;
+        }
+
+        .reviews-section h2 {
+            font-size: 18px;
+            font-weight: bold;
+            color: white;
+            margin-bottom: 10px;
+        }
+
+        .review-card {
+            background-color: #242424;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+
+        .review-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            margin-right: 15px;
+        }
+
+        .reviewer-name {
+            font-weight: bold;
+            color: #fff;
+        }
+
+        .review-rating {
+            color: #ffeb3b;
+        }
+
+        .review-text {
+            margin-top: 10px;
+            color: #ccc;
+        }
+    </style>
+</head>
+<body>
+    <div class="app-page">
+        <div class="app-header">
+            <img class="app-icon" src="glologo.png" alt="App Icon">
+            <div class="app-info">
+                <h1 class="app-name">Binaural Beat Generator</h1>
+                <p class="app-category">Productivity</p>
+                <div class="app-rating">
+                    <span>4.5</span> ★ (200K reviews)
+                </div>
+            </div>
+        </div>
+        
+        <div class="app-description">
+            <h2>Description</h2>
+            <p>
+                Binaural beats are special audio frequencies that can synchronize brainwave activity, helping your brain enter states of focus, relaxation, or sleep. For the best experience, we recommend using headphones or earbuds to fully benefit from the binaural effect.
+                </p>
+        </div>
+
+        <!-- Screenshots Section -->
+        <div class="screenshots">
+            <h2>Screenshots</h2>
+            <div class="screenshots-wrapper">
+                <img class="screenshot" src="screenshotbalance.jpg" class="screenshot" alt="Screenshot 1">
+                <img class="screenshot" src="screenshothome.jpg" class="screenshot" alt="Screenshot 2">
+                <img class="screenshot" src="screenshotcard.jpg" class="screenshot" alt="Screenshot 3">
+                <img class="screenshot" src="screenshotsearch.jpg" class="screenshot" alt="Screenshot 4">
+                <img class="screenshot" src="screenshotsuccess.jpg" class="screenshot" alt="Screenshot 5">
+                <img class="screenshot" src="screenshotbalance.jpg" class="screenshot" alt="Screenshot 1">
+                <img class="screenshot" src="screenshothome.jpg" class="screenshot" alt="Screenshot 2">
+                <img class="screenshot" src="screenshotcard.jpg" class="screenshot" alt="Screenshot 3">
+                <img class="screenshot" src="screenshotsearch.jpg" class="screenshot" alt="Screenshot 4">
+                <img class="screenshot" src="screenshotsuccess.jpg" class="screenshot" alt="Screenshot 5">
+            </div>
+        </div>
+
+        <!-- Reviews Section -->
+        <div class="reviews-section">
+            <h2>Reviews</h2>
+
+            <!-- Review 1 -->
+            <div class="review-card">
+                <img class="review-avatar" src="steven.png" alt="John Doe's Avatar">
+                <div>
+                    <div class="reviewer-name">John Doe</div>
+                    <div class="review-rating">★★★★☆</div>
+                    <div class="review-text">This app is amazing! It helps me focus while I work, and I love the different sound options.</div>
+                </div>
+            </div>
+
+            <!-- Review 2 -->
+            <div class="review-card">
+                <img class="review-avatar" src="woman.jpg" alt="Jane Smith's Avatar">
+                <div>
+                    <div class="reviewer-name">Jane Smith</div>
+                    <div class="review-rating">★★★★★</div>
+                    <div class="review-text">Absolutely love this app! It's simple, effective, and helps me relax during stressful times.</div>
+                </div>
+            </div>
+
+            <!-- Review 3 -->
+            <div class="review-card">
+                <img class="review-avatar" src="ray.png" alt="Mark Lee's Avatar">
+                <div>
+                    <div class="reviewer-name">Mark Lee</div>
+                    <div class="review-rating">★★★★☆</div>
+                    <div class="review-text">Good app, but I would like more customization options for the beats.</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="app-buttons">
+            <button class="install-button">Install</button>
+        </div>
+        
+        <div class="footer">
+            <!-- <p>&copy; 2025 Binaural Beat Generator</p> -->
+        </div>
+    </div>
+</body>
+</html>

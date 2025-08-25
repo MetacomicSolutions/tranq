@@ -7,12 +7,12 @@
   "theme_color": "#131313",
   "icons": [
     {
-      "src": "tranq.png",
+      "src": "imgs/tranq.png",
       "sizes": "192x192",
       "type": "image/png"
     },
     {
-      "src": "tranq.png",
+      "src": "imgs/tranq.png",
       "sizes": "512x512",
       "type": "image/png"
     }

@@ -7,11 +7,45 @@
       font-family: 'Segoe UI', Tahoma, sans-serif;
       background: #131313;
       color: #eee;
+      background-image: url('imgs/bg.png');
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
       display: flex;
       flex-direction: column;
       height: 100vh;
       overflow: hidden;
     }
+
+    .corner-icon {
+  position: fixed;
+  top: 20px;
+  z-index: 1000;
+  width: 120px;
+  height: 120px;
+  cursor: pointer;
+}
+
+.corner-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 50%;
+  transition: transform 0.2s ease;
+}
+
+.corner-icon:hover img {
+  transform: scale(1.1);
+}
+
+.left-corner {
+  left: 20px;
+}
+
+.right-corner {
+  right: 20px;
+}
+
 
     .header {
         font-size: 4rem;
@@ -60,6 +94,8 @@
       margin-bottom: 1rem;
     }
 
+    
+
     .volumeControl {
       -webkit-appearance: none;
       width: 100%;
@@ -102,7 +138,7 @@
       background: var(--thumb-img) no-repeat center center;
       background-size: contain;
       border: none;
-      border-radius: 8px;
+      border-radius: 50%;
       cursor: pointer;
       box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
       transition: transform 0.15s ease;

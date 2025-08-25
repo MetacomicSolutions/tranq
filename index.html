@@ -5,29 +5,29 @@
   <title>Tranq</title>
   <link rel="manifest" href="manifest.json" />
   <meta name="theme-color" content="#131313"/>
-  <link rel="icon" href="tranq.png" type="image/png" />
+  <link rel="icon" href="imgs/logo.png" type="image/png" />
   <link rel="stylesheet" href="style.css" />
 
       <!-- Standard Icons -->
-    <link rel="icon" type="image/png" sizes="48x48" href="tranq.png">
-    <link rel="icon" type="image/png" sizes="72x72" href="tranq.png">
-    <link rel="icon" type="image/png" sizes="96x96" href="tranq.png">
-    <link rel="icon" type="image/png" sizes="128x128" href="tranq.png">
-    <link rel="icon" type="image/png" sizes="144x144" href="tranq.png">
-    <link rel="icon" type="image/png" sizes="152x152" href="tranq.png">
-    <link rel="icon" type="image/png" sizes="192x192" href="tranq.png">
-    <link rel="icon" type="image/png" sizes="384x384" href="tranq.png">
-    <link rel="icon" type="image/png" sizes="512x512" href="tranq.png">
+    <link rel="icon" type="image/png" sizes="48x48" href="imgs/logo.png">
+    <link rel="icon" type="image/png" sizes="72x72" href="imgs/logo.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="imgs/logo.png">
+    <link rel="icon" type="image/png" sizes="128x128" href="imgs/logo.png">
+    <link rel="icon" type="image/png" sizes="144x144" href="imgs/logo.png">
+    <link rel="icon" type="image/png" sizes="152x152" href="imgs/logo.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="imgs/logo.png">
+    <link rel="icon" type="image/png" sizes="384x384" href="imgs/logo.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="imgs/logo.png">
 
     <!-- Apple Touch Icons -->
-    <link rel="apple-touch-icon" sizes="120x120" href="tranq.png">
-    <link rel="apple-touch-icon" sizes="152x152" href="tranq.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="tranq.png">
-    <link rel="apple-touch-icon" sizes="192x192" href="tranq.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="imgs/logo.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="imgs/logo.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="imgs/logo.png">
+    <link rel="apple-touch-icon" sizes="192x192" href="imgs/logo.png">
 
     <!-- Windows Tiles -->
     <meta name="msapplication-TileColor" content="#131313">
-    <meta name="msapplication-TileImage" content="tranq.png">
+    <meta name="msapplication-TileImage" content="imgs/logo.png">
 
 <style>
     .circle {
@@ -69,217 +69,419 @@
 
 </head>
 <body>
-<div style="margin-top: 6vh;">   
-  <a style="text-decoration: none; color: white;" href="https://metacomicsolutions.github.io/tranq/">
-        <h1 style="
-        text-align: center;
-        font-size: 13rem;
-        font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-        margin-top: 4vh;
-        margin: 0;  
-    ">T r a n q
-    </h1>
-  </a>
-</div>
 
-  <main style="margin-top: vh;">
+  <a href="left-action.html" class="corner-icon left-corner">
+  <img src="imgs/wave.jpg" alt="Left Icon">
+</a>
+
+<a href="right-action.html" class="corner-icon right-corner">
+  <img src="imgs/alarm.jpg" alt="Right Icon">
+</a>
+
+
+
+  <main style="margin-top: 0;">
 
 
 
     <div class="soundControl">
-      <div class="soundLabel">Rain</div>
+        <a href="index.html">
+                    <img src="imgs/logo.png" alt="">
+        </a>
+      <div class="soundLabel">Babbling Brook</div>
       <audio class="audioPlayer" data-index="1" src="rain.mp3" autoplay loop></audio>
       <input 
         type="range"
         class="volumeControl"
         data-index="1"
         min="0" max="1" step="0.01" value="0"
-        style="--thumb-img: url('tranq.png');"
+        style="--thumb-img: url('imgs/heavy.rain.jpeg');"
         aria-label="Volume control for Rain sound"
       >
     </div>
 
     <div class="soundControl">
-      <div class="soundLabel">Birds</div>
+      <div class="soundLabel">Birds in City Park</div>
       <audio class="audioPlayer" data-index="2" src="birds.mp3" autoplay loop></audio>
       <input 
         type="range"
         class="volumeControl"
         data-index="2"
         min="0" max="1" step="0.01" value="0"
-        style="--thumb-img: url('tranq.png');"
+        style="--thumb-img: url('imgs/logo.png');"
         aria-label="Volume control for Birds sound"
       >
     </div>
 
     <div class="soundControl">
-      <div class="soundLabel">Minke Whale</div>
+      <div class="soundLabel">Blackbird and Sparrow</div>
       <audio class="audioPlayer" data-index="3" src="minkewhale.mp3" autoplay loop></audio>
       <input 
         type="range"
         class="volumeControl"
         data-index="3"
         min="0" max="1" step="0.01" value="0"
-        style="--thumb-img: url('tranq.png');"
+        style="--thumb-img: url('imgs/logo.png');"
         aria-label="Volume control for Minke Whale sound"
       >
     </div>
 
-<!--         Disabled            -->
 
 
     <div class="soundControl">
-      <div class="soundLabel">Rain</div>
+      <div class="soundLabel">Blizzard</div>
       <audio class="audioPlayer" data-index="4" src="rain.mp3" autoplay loop></audio>
       <input 
         type="range"
         class="volumeControl"
         data-index="4"
         min="0" max="1" step="0.01" value="0"
-        style="--thumb-img: url('tranq.png');"
+        style="--thumb-img: url('imgs/logo.png');"
         aria-label="Volume control for Rain sound"
       >
     </div>
 
     <div class="soundControl">
-      <div class="soundLabel">Birds</div>
+      <div class="soundLabel">Children in the Rain</div>
       <audio class="audioPlayer" data-index="5" src="birds.mp3" autoplay loop></audio>
       <input 
         type="range"
         class="volumeControl"
         data-index="5"
         min="0" max="1" step="0.01" value="0"
-        style="--thumb-img: url('tranq.png');"
+        style="--thumb-img: url('imgs/logo.png');"
         aria-label="Volume control for Birds sound"
       >
     </div>
 
     <div class="soundControl">
-      <div class="soundLabel">Minke Whale</div>
+      <div class="soundLabel">Continuous Thunder</div>
       <audio class="audioPlayer" data-index="6" src="minkewhale.mp3" autoplay loop></audio>
       <input 
         type="range"
         class="volumeControl"
         data-index="6"
         min="0" max="1" step="0.01" value="0"
-        style="--thumb-img: url('tranq.png');"
+        style="--thumb-img: url('imgs/logo.png');"
         aria-label="Volume control for Minke Whale sound"
       >
     </div>
 
         <div class="soundControl">
-      <div class="soundLabel">Rain</div>
+      <div class="soundLabel">Cougar</div>
       <audio class="audioPlayer" data-index="7" src="rain.mp3" autoplay loop></audio>
       <input 
         type="range"
         class="volumeControl"
         data-index="7"
         min="0" max="1" step="0.01" value="0"
-        style="--thumb-img: url('tranq.png');"
+        style="--thumb-img: url('imgs/logo.png');"
         aria-label="Volume control for Rain sound"
       >
     </div>
 
     <div class="soundControl">
-      <div class="soundLabel">Birds</div>
+      <div class="soundLabel">Cricket</div>
       <audio class="audioPlayer" data-index="8" src="birds.mp3" autoplay loop></audio>
       <input 
         type="range"
         class="volumeControl"
         data-index="8"
         min="0" max="1" step="0.01" value="0"
-        style="--thumb-img: url('tranq.png');"
+        style="--thumb-img: url('imgs/logo.png');"
         aria-label="Volume control for Birds sound"
       >
     </div>
 
     <div class="soundControl">
-      <div class="soundLabel">Minke Whale</div>
+      <div class="soundLabel">Earthquake</div>
       <audio class="audioPlayer" data-index="9" src="minkewhale.mp3" autoplay loop></audio>
       <input 
         type="range"
         class="volumeControl"
         data-index="9"
         min="0" max="1" step="0.01" value="0"
-        style="--thumb-img: url('tranq.png');"
+        style="--thumb-img: url('imgs/logo.png');"
         aria-label="Volume control for Minke Whale sound"
       >
     </div>
 
         <div class="soundControl">
-      <div class="soundLabel">Rain</div>
+      <div class="soundLabel">GUlls</div>
       <audio class="audioPlayer" data-index="10" src="rain.mp3" autoplay loop></audio>
       <input 
         type="range"
         class="volumeControl"
         data-index="10"
         min="0" max="1" step="0.01" value="0"
-        style="--thumb-img: url('tranq.png');"
+        style="--thumb-img: url('imgs/logo.png');"
         aria-label="Volume control for Rain sound"
       >
     </div>
 
     <div class="soundControl">
-      <div class="soundLabel">Birds</div>
+      <div class="soundLabel">Heavy Rain(into flood)</div>
       <audio class="audioPlayer" data-index="11" src="birds.mp3" autoplay loop></audio>
       <input 
         type="range"
         class="volumeControl"
         data-index="11"
         min="0" max="1" step="0.01" value="0"
-        style="--thumb-img: url('tranq.png');"
+        style="--thumb-img: url('imgs/logo.png');"
         aria-label="Volume control for Birds sound"
       >
     </div>
 
     <div class="soundControl">
-      <div class="soundLabel">Minke Whale</div>
+      <div class="soundLabel">Hot Summer Day in the Country</div>
       <audio class="audioPlayer" data-index="12" src="minkewhale.mp3" autoplay loop></audio>
       <input 
         type="range"
         class="volumeControl"
         data-index="12"
         min="0" max="1" step="0.01" value="0"
-        style="--thumb-img: url('tranq.png');"
+        style="--thumb-img: url('imgs/logo.png');"
         aria-label="Volume control for Minke Whale sound"
       >
     </div>
 
         <div class="soundControl">
-      <div class="soundLabel">Rain</div>
+      <div class="soundLabel">Lightning(synth)</div>
       <audio class="audioPlayer" data-index="13" src="rain.mp3" autoplay loop></audio>
       <input 
         type="range"
         class="volumeControl"
         data-index="13"
         min="0" max="1" step="0.01" value="0"
-        style="--thumb-img: url('tranq.png');"
+        style="--thumb-img: url('imgs/logo.png');"
         aria-label="Volume control for Rain sound"
       >
     </div>
 
     <div class="soundControl">
-      <div class="soundLabel">Birds</div>
+      <div class="soundLabel">Lunescape</div>
       <audio class="audioPlayer" data-index="14" src="birds.mp3" autoplay loop></audio>
       <input 
         type="range"
         class="volumeControl"
         data-index="14"
         min="0" max="1" step="0.01" value="0"
-        style="--thumb-img: url('tranq.png');"
+        style="--thumb-img: url('imgs/logo.png');"
         aria-label="Volume control for Birds sound"
       >
     </div>
 
     <div class="soundControl">
-      <div class="soundLabel">Minke Whale</div>
+      <div class="soundLabel">Mountain Stream (on rampage)</div>
       <audio class="audioPlayer" data-index="15" src="minkewhale.mp3" autoplay loop></audio>
       <input 
         type="range"
         class="volumeControl"
         data-index="15"
         min="0" max="1" step="0.01" value="0"
-        style="--thumb-img: url('tranq.png');"
+        style="--thumb-img: url('imgs/logo.png');"
+        aria-label="Volume control for Minke Whale sound"
+      >
+    </div>
+
+
+    <!--         Rename (30 total)           -->
+
+
+    
+    <div class="soundControl">
+      <div class="soundLabel">Babbling Brook</div>
+      <audio class="audioPlayer" data-index="1" src="rain.mp3" autoplay loop></audio>
+      <input 
+        type="range"
+        class="volumeControl"
+        data-index="1"
+        min="0" max="1" step="0.01" value="0"
+        style="--thumb-img: url('imgs/heavy.rain.jpeg');"
+        aria-label="Volume control for Rain sound"
+      >
+    </div>
+
+    <div class="soundControl">
+      <div class="soundLabel">Birds in City Park</div>
+      <audio class="audioPlayer" data-index="2" src="birds.mp3" autoplay loop></audio>
+      <input 
+        type="range"
+        class="volumeControl"
+        data-index="2"
+        min="0" max="1" step="0.01" value="0"
+        style="--thumb-img: url('imgs/logo.png');"
+        aria-label="Volume control for Birds sound"
+      >
+    </div>
+
+    <div class="soundControl">
+      <div class="soundLabel">Blackbird and Sparrow</div>
+      <audio class="audioPlayer" data-index="3" src="minkewhale.mp3" autoplay loop></audio>
+      <input 
+        type="range"
+        class="volumeControl"
+        data-index="3"
+        min="0" max="1" step="0.01" value="0"
+        style="--thumb-img: url('imgs/logo.png');"
+        aria-label="Volume control for Minke Whale sound"
+      >
+    </div>
+
+
+
+    <div class="soundControl">
+      <div class="soundLabel">Blizzard</div>
+      <audio class="audioPlayer" data-index="4" src="rain.mp3" autoplay loop></audio>
+      <input 
+        type="range"
+        class="volumeControl"
+        data-index="4"
+        min="0" max="1" step="0.01" value="0"
+        style="--thumb-img: url('imgs/logo.png');"
+        aria-label="Volume control for Rain sound"
+      >
+    </div>
+
+    <div class="soundControl">
+      <div class="soundLabel">Children in the Rain</div>
+      <audio class="audioPlayer" data-index="5" src="birds.mp3" autoplay loop></audio>
+      <input 
+        type="range"
+        class="volumeControl"
+        data-index="5"
+        min="0" max="1" step="0.01" value="0"
+        style="--thumb-img: url('imgs/logo.png');"
+        aria-label="Volume control for Birds sound"
+      >
+    </div>
+
+    <div class="soundControl">
+      <div class="soundLabel">Continuous Thunder</div>
+      <audio class="audioPlayer" data-index="6" src="minkewhale.mp3" autoplay loop></audio>
+      <input 
+        type="range"
+        class="volumeControl"
+        data-index="6"
+        min="0" max="1" step="0.01" value="0"
+        style="--thumb-img: url('imgs/logo.png');"
+        aria-label="Volume control for Minke Whale sound"
+      >
+    </div>
+
+        <div class="soundControl">
+      <div class="soundLabel">Cougar</div>
+      <audio class="audioPlayer" data-index="7" src="rain.mp3" autoplay loop></audio>
+      <input 
+        type="range"
+        class="volumeControl"
+        data-index="7"
+        min="0" max="1" step="0.01" value="0"
+        style="--thumb-img: url('imgs/logo.png');"
+        aria-label="Volume control for Rain sound"
+      >
+    </div>
+
+    <div class="soundControl">
+      <div class="soundLabel">Cricket</div>
+      <audio class="audioPlayer" data-index="8" src="birds.mp3" autoplay loop></audio>
+      <input 
+        type="range"
+        class="volumeControl"
+        data-index="8"
+        min="0" max="1" step="0.01" value="0"
+        style="--thumb-img: url('imgs/logo.png');"
+        aria-label="Volume control for Birds sound"
+      >
+    </div>
+
+    <div class="soundControl">
+      <div class="soundLabel">Earthquake</div>
+      <audio class="audioPlayer" data-index="9" src="minkewhale.mp3" autoplay loop></audio>
+      <input 
+        type="range"
+        class="volumeControl"
+        data-index="9"
+        min="0" max="1" step="0.01" value="0"
+        style="--thumb-img: url('imgs/logo.png');"
+        aria-label="Volume control for Minke Whale sound"
+      >
+    </div>
+
+        <div class="soundControl">
+      <div class="soundLabel">GUlls</div>
+      <audio class="audioPlayer" data-index="10" src="rain.mp3" autoplay loop></audio>
+      <input 
+        type="range"
+        class="volumeControl"
+        data-index="10"
+        min="0" max="1" step="0.01" value="0"
+        style="--thumb-img: url('imgs/logo.png');"
+        aria-label="Volume control for Rain sound"
+      >
+    </div>
+
+    <div class="soundControl">
+      <div class="soundLabel">Heavy Rain(into flood)</div>
+      <audio class="audioPlayer" data-index="11" src="birds.mp3" autoplay loop></audio>
+      <input 
+        type="range"
+        class="volumeControl"
+        data-index="11"
+        min="0" max="1" step="0.01" value="0"
+        style="--thumb-img: url('imgs/logo.png');"
+        aria-label="Volume control for Birds sound"
+      >
+    </div>
+
+    <div class="soundControl">
+      <div class="soundLabel">Hot Summer Day in the Country</div>
+      <audio class="audioPlayer" data-index="12" src="minkewhale.mp3" autoplay loop></audio>
+      <input 
+        type="range"
+        class="volumeControl"
+        data-index="12"
+        min="0" max="1" step="0.01" value="0"
+        style="--thumb-img: url('imgs/logo.png');"
+        aria-label="Volume control for Minke Whale sound"
+      >
+    </div>
+
+        <div class="soundControl">
+      <div class="soundLabel">Lightning(synth)</div>
+      <audio class="audioPlayer" data-index="13" src="rain.mp3" autoplay loop></audio>
+      <input 
+        type="range"
+        class="volumeControl"
+        data-index="13"
+        min="0" max="1" step="0.01" value="0"
+        style="--thumb-img: url('imgs/logo.png');"
+        aria-label="Volume control for Rain sound"
+      >
+    </div>
+
+    <div class="soundControl">
+      <div class="soundLabel">Lunescape</div>
+      <audio class="audioPlayer" data-index="14" src="birds.mp3" autoplay loop></audio>
+      <input 
+        type="range"
+        class="volumeControl"
+        data-index="14"
+        min="0" max="1" step="0.01" value="0"
+        style="--thumb-img: url('imgs/logo.png');"
+        aria-label="Volume control for Birds sound"
+      >
+    </div>
+
+    <div class="soundControl">
+      <div class="soundLabel">Mountain Stream (on rampage)</div>
+      <audio class="audioPlayer" data-index="15" src="minkewhale.mp3" autoplay loop></audio>
+      <input 
+        type="range"
+        class="volumeControl"
+        data-index="15"
+        min="0" max="1" step="0.01" value="0"
+        style="--thumb-img: url('imgs/logo.png');"
         aria-label="Volume control for Minke Whale sound"
       >
     </div>
@@ -304,7 +506,7 @@
             -->
   <div class="profile-card">
   <a href="pricing.html">
-    <img src="users.png" alt="Profile Picture" class="profile-img">
+    <img src="imgs/users.png" alt="Profile Picture" class="profile-img">
   </a>
     <div class="name">John Doe</div>
     <div class="job-title">Frontend Developer</div>
@@ -377,7 +579,3 @@
 
 </body>
 </html>
-
-
-
-
