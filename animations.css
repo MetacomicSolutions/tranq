@@ -1,0 +1,130 @@
+html {
+  background: url("imgs/stars.png") repeat;
+  background-size: cover;
+  background-color: #000;
+  animation: starScroll 120s linear infinite; /* slower drift */
+}
+
+@keyframes starScroll {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: -8000px 4000px; /* gentler movement */
+  }
+}
+
+/* --- Logo: slow dreamy rise */
+.logo {
+  opacity: 0;
+  transform: translateY(40px);
+  animation: slideUp 2.4s ease-in-out forwards;
+}
+
+@keyframes slideUp {
+  0% {
+    opacity: 0;
+    transform: translateY(40px);
+    filter: blur(8px);
+  }
+  60% {
+    opacity: 0.6;
+    transform: translateY(12px);
+    filter: blur(3px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+/* --- Sound Control: gentle fade from above */
+.soundControl {
+  opacity: 0;
+  transform: translateY(-40px);
+  animation: fadeDown 2.8s ease-in-out forwards;
+  animation-delay: 1s; /* staggered, arrives later */
+}
+
+@keyframes fadeDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-40px);
+    filter: blur(8px);
+  }
+  60% {
+    opacity: 0.6;
+    transform: translateY(-12px);
+    filter: blur(3px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+
+.circle {
+  position: fixed;
+  bottom: -42px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 400px;
+  height: 180px;
+  background-color: #000000;
+  border-radius: 30%;
+  transition: all 0.4s ease;
+  z-index: 10;
+  cursor: pointer;
+}
+
+/* Expanded state */
+.circle.expanded {
+  width: 100%;
+  height: 100%;
+  border-radius: 20px 20px 0 0;
+  bottom: 0;
+  left: 0;
+  text-align: center;
+  transform: none;
+}
+
+/* Glow effect */
+.circle.glow {
+  animation: glowPulse 3s ease-out 2s; /* duration 1s, delay 2s */
+}
+
+@keyframes glowPulse {
+  0% {
+    box-shadow: 0 0 0px rgba(0, 200, 255, 0);
+  }
+  40% {
+    box-shadow: 0 0 30px rgba(255, 255, 255, 0.8);
+  }
+  100% {
+    box-shadow: 0 0 0px rgba(0, 200, 255, 0);
+  }
+}
+
+
+@keyframes popIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.6) translateY(-20px);
+    filter: blur(6px);
+  }
+  60% {
+    opacity: 1;
+    transform: scale(1.05) translateY(0);
+    filter: blur(2px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+    filter: blur(0);
+  }
+}
+
+

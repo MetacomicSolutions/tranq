@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Fullscreen Alarm Clock (Reload)</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      background: #000000;
+      color: #eee;
+      text-align: center;
+    }
+    input, button {
+      padding: 20px 30px;
+      margin: 10px;
+      font-size: 2rem;
+      border: none;
+      border-radius: 8px;
+    }
+    input {
+      background: #222;
+      color: #eee;
+    }
+    button {
+      cursor: pointer;
+    }
+    #status {
+      margin-top: 20px;
+      font-size: 2rem;
+    }
+  </style>
+</head>
+<body>
+  <input id="time" type="time" step="1">
+  <button id="setBtn">Set Time</button>
+  <button id="cancelBtn" disabled>Cancel</button>
+  <div id="status">No Time set.</div>
+
+  <script>
+    const timeInput = document.getElementById('time');
+    const setBtn = document.getElementById('setBtn');
+    const cancelBtn = document.getElementById('cancelBtn');
+    const statusEl = document.getElementById('status');
+
+    let fireTimeout = null;
+    let targetTs = null;
+
+    function schedule(){
+      if(!timeInput.value){ statusEl.textContent = 'Pick a time!'; return; }
+      const [hh, mm, ss='0'] = timeInput.value.split(':').map(Number);
+      const now = new Date();
+      const target = new Date();
+      target.setHours(hh, mm, ss, 0);
+      if(target <= now) target.setDate(target.getDate()+1);
+      targetTs = target.getTime();
+      const ms = targetTs - Date.now();
+      fireTimeout = setTimeout(()=>location.reload(), ms);
+      statusEl.textContent = `Alarm set for ${target.toLocaleTimeString()}`;
+      setBtn.disabled = true;
+      cancelBtn.disabled = false;
+    }
+
+    function cancel(){
+      clearTimeout(fireTimeout);
+      targetTs = null;
+      statusEl.textContent = 'Alarm canceled.';
+      setBtn.disabled = false;
+      cancelBtn.disabled = true;
+    }
+
+    setBtn.addEventListener('click', schedule);
+    cancelBtn.addEventListener('click', cancel);
+  </script>
+</body>
+</html>

@@ -7,6 +7,7 @@
   <meta name="theme-color" content="#131313"/>
   <link rel="icon" href="imgs/icon.png" type="image/png" />
   <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="animations.css">
 
       <!-- Standard Icons -->
     <link rel="icon" type="image/png" sizes="48x48" href="imgs/icon.png">
@@ -30,64 +31,86 @@
     <meta name="msapplication-TileImage" content="imgs/icon.png">
 
 <style>
-    .circle {
-      position: fixed;
-      bottom: -42px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 400px;
-      height: 180px;
-      background-color: #000000;
-      border-radius: 30%;
-      transition: all 0.4s ease;
-      z-index: 10;
-      cursor: pointer;
-    }
+  .corner-icon {
+  position: fixed;
+  top: 20px;
+  z-index: 1000;
+  width: 120px;
+  height: 120px;
+  cursor: pointer;
+}
+.corner-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 50%;
+  transition: transform 0.2s ease;
+}
+.corner-icon:hover img {
+  transform: scale(1.1);
+}
+.left-corner { left: 20px; }
+.right-corner { right: 20px; }
 
-    .circle.expanded {
-      width: 100%;
-      height: 100%;
-      border-radius: 20px 20px 0 0;
-      bottom: 0;
-      left: 0;
-      text-align: center;
-      transform: none;
-    }
+/* Overlay styles */
+.overlay {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw; height: 100vh;
+  background: rgba(0,0,0,0.85);
+  display: none;
+  z-index: 2000;
+  cursor: pointer;
+}
+.overlay.active {
+  display: block;
+  animation: fadeIn 0.4s ease;
+}
 
- .profile-img {
-      width: 220px;
-      height: 220px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 4px solid #007bff;
-      margin-bottom: 20px;
-    }
-
-
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
 
 </style>
 
 </head>
 <body>
 
-  <a href="left-action.html" class="corner-icon left-corner">
+
+
+<a href="#" class="corner-icon left-corner" data-overlay="overlay-left">
   <img src="imgs/wave.jpg" alt="Left Icon">
 </a>
 
-<a href="right-action.html" class="corner-icon right-corner">
+<a href="#" class="corner-icon right-corner" data-overlay="overlay-right">
   <img src="imgs/alarm.jpg" alt="Right Icon">
 </a>
 
+<!-- Overlays -->
+<div id="overlay-left" class="overlay">
+   <canvas id="visualizer"></canvas>
+</div>
+<div id="overlay-right" class="overlay">
+<div>
+
+  <input style="width: 100%;" id="time" type="time" step="1">
+  <button id="setBtn">Set Time</button>
+  <button id="cancelBtn" disabled>Cancel</button>
+  <div id="status">No Time set.</div>
+
+</div>
+</div>
 
 
-  <main style="margin-top: 0;">
 
+  <main>
 
-
-    <div class="soundControl">
-        <a style="padding: 0; margin: -6vh;" href="index.html">
-                    <img src="imgs/logo.png" alt="">
+  <a style="text-align: center; padding: .4rem; margin-top: 0vh; margin-bottom: -2vh;" href="index.html">
+          <img class="logo" style="height: 12vh; margin-top: 6vh;" src="imgs/logo5.png" alt="">
         </a>
+
+    <div class="soundControl" id="sound1">
       <div class="soundLabel">Babbling Brook</div>
       <audio class="audioPlayer" data-index="1" src="rain.mp3" autoplay loop></audio>
       <input 
@@ -95,53 +118,57 @@
         class="volumeControl"
         data-index="1"
         min="0" max="1" step="0.01" value="0"
-        style="--thumb-img: url('imgs/heavy.rain.jpeg');"
+        style="--thumb-img: url('imgs/babbling.brook.jpg');"
         aria-label="Volume control for Rain sound"
       >
+              <button class="favorite-btn">★</button>
     </div>
 
-    <div class="soundControl">
-      <div class="soundLabel">Birds in City Park</div>
+    <div class="soundControl"id="sound2">
+      <div class="soundLabel">Farm at Night</div>
       <audio class="audioPlayer" data-index="2" src="birds.mp3" autoplay loop></audio>
       <input 
         type="range"
         class="volumeControl"
         data-index="2"
         min="0" max="1" step="0.01" value="0"
-        style="--thumb-img: url('imgs/logo.png');"
+        style="--thumb-img: url('imgs/farm.night.jpeg');"
         aria-label="Volume control for Birds sound"
       >
+      <button class="favorite-btn">★</button>
     </div>
 
-    <div class="soundControl">
-      <div class="soundLabel">Blackbird and Sparrow</div>
+    <div class="soundControl" id="sound3">
+      <div class="soundLabel">Heavy Rain</div>
       <audio class="audioPlayer" data-index="3" src="minkewhale.mp3" autoplay loop></audio>
       <input 
         type="range"
         class="volumeControl"
         data-index="3"
         min="0" max="1" step="0.01" value="0"
-        style="--thumb-img: url('imgs/logo.png');"
+        style="--thumb-img: url('imgs/heavy.rain.jpeg');"
         aria-label="Volume control for Minke Whale sound"
       >
+        <button class="favorite-btn">★</button>
     </div>
 
 
 
-    <div class="soundControl">
-      <div class="soundLabel">Blizzard</div>
+    <div class="soundControl" id="sound4">
+      <div class="soundLabel">Mountain Stream</div>
       <audio class="audioPlayer" data-index="4" src="rain.mp3" autoplay loop></audio>
       <input 
         type="range"
         class="volumeControl"
         data-index="4"
         min="0" max="1" step="0.01" value="0"
-        style="--thumb-img: url('imgs/logo.png');"
+        style="--thumb-img: url('imgs/mountain.stream.jpeg');"
         aria-label="Volume control for Rain sound"
       >
+      <button class="favorite-btn">★</button>
     </div>
 
-    <div class="soundControl">
+    <div class="soundControl" id="sound5">
       <div class="soundLabel">Children in the Rain</div>
       <audio class="audioPlayer" data-index="5" src="birds.mp3" autoplay loop></audio>
       <input 
@@ -149,12 +176,13 @@
         class="volumeControl"
         data-index="5"
         min="0" max="1" step="0.01" value="0"
-        style="--thumb-img: url('imgs/logo.png');"
+        style="--thumb-img: url('imgs/icon.png');"
         aria-label="Volume control for Birds sound"
       >
+      <button class="favorite-btn">★</button>
     </div>
 
-    <div class="soundControl">
+    <div class="soundControl" id="sound6">
       <div class="soundLabel">Continuous Thunder</div>
       <audio class="audioPlayer" data-index="6" src="minkewhale.mp3" autoplay loop></audio>
       <input 
@@ -162,12 +190,13 @@
         class="volumeControl"
         data-index="6"
         min="0" max="1" step="0.01" value="0"
-        style="--thumb-img: url('imgs/logo.png');"
+        style="--thumb-img: url('imgs/icon.png');"
         aria-label="Volume control for Minke Whale sound"
       >
+      <button class="favorite-btn">★</button>
     </div>
 
-        <div class="soundControl">
+        <div class="soundControl" id="sound7">
       <div class="soundLabel">Cougar</div>
       <audio class="audioPlayer" data-index="7" src="rain.mp3" autoplay loop></audio>
       <input 
@@ -175,12 +204,13 @@
         class="volumeControl"
         data-index="7"
         min="0" max="1" step="0.01" value="0"
-        style="--thumb-img: url('imgs/logo.png');"
+        style="--thumb-img: url('imgs/icon.png');"
         aria-label="Volume control for Rain sound"
       >
+      <button class="favorite-btn">★</button>
     </div>
 
-    <div class="soundControl">
+    <div class="soundControl" id="sound8">
       <div class="soundLabel">Cricket</div>
       <audio class="audioPlayer" data-index="8" src="birds.mp3" autoplay loop></audio>
       <input 
@@ -188,12 +218,13 @@
         class="volumeControl"
         data-index="8"
         min="0" max="1" step="0.01" value="0"
-        style="--thumb-img: url('imgs/logo.png');"
+        style="--thumb-img: url('imgs/icon.png');"
         aria-label="Volume control for Birds sound"
       >
+      <button class="favorite-btn">★</button>
     </div>
 
-    <div class="soundControl">
+    <div class="soundControl" id="sound9">
       <div class="soundLabel">Earthquake</div>
       <audio class="audioPlayer" data-index="9" src="minkewhale.mp3" autoplay loop></audio>
       <input 
@@ -201,12 +232,13 @@
         class="volumeControl"
         data-index="9"
         min="0" max="1" step="0.01" value="0"
-        style="--thumb-img: url('imgs/logo.png');"
+        style="--thumb-img: url('imgs/icon.png');"
         aria-label="Volume control for Minke Whale sound"
       >
+      <button class="favorite-btn">★</button>
     </div>
 
-        <div class="soundControl">
+        <div class="soundControl" id="sound10">
       <div class="soundLabel">GUlls</div>
       <audio class="audioPlayer" data-index="10" src="rain.mp3" autoplay loop></audio>
       <input 
@@ -214,12 +246,13 @@
         class="volumeControl"
         data-index="10"
         min="0" max="1" step="0.01" value="0"
-        style="--thumb-img: url('imgs/logo.png');"
+        style="--thumb-img: url('imgs/icon.png');"
         aria-label="Volume control for Rain sound"
       >
+      <button class="favorite-btn">★</button>
     </div>
 
-    <div class="soundControl">
+    <div class="soundControl" id="sound11">
       <div class="soundLabel">Heavy Rain(into flood)</div>
       <audio class="audioPlayer" data-index="11" src="birds.mp3" autoplay loop></audio>
       <input 
@@ -227,12 +260,13 @@
         class="volumeControl"
         data-index="11"
         min="0" max="1" step="0.01" value="0"
-        style="--thumb-img: url('imgs/logo.png');"
+        style="--thumb-img: url('imgs/icon.png');"
         aria-label="Volume control for Birds sound"
       >
+      <button class="favorite-btn">★</button>
     </div>
 
-    <div class="soundControl">
+    <div class="soundControl" id="sound12">
       <div class="soundLabel">Hot Summer Day in the Country</div>
       <audio class="audioPlayer" data-index="12" src="minkewhale.mp3" autoplay loop></audio>
       <input 
@@ -240,12 +274,13 @@
         class="volumeControl"
         data-index="12"
         min="0" max="1" step="0.01" value="0"
-        style="--thumb-img: url('imgs/logo.png');"
+        style="--thumb-img: url('imgs/icon.png');"
         aria-label="Volume control for Minke Whale sound"
       >
+      <button class="favorite-btn">★</button>
     </div>
 
-        <div class="soundControl">
+        <div class="soundControl" id="sound13">
       <div class="soundLabel">Lightning(synth)</div>
       <audio class="audioPlayer" data-index="13" src="rain.mp3" autoplay loop></audio>
       <input 
@@ -253,12 +288,13 @@
         class="volumeControl"
         data-index="13"
         min="0" max="1" step="0.01" value="0"
-        style="--thumb-img: url('imgs/logo.png');"
+        style="--thumb-img: url('imgs/icon.png');"
         aria-label="Volume control for Rain sound"
       >
+      <button class="favorite-btn">★</button>
     </div>
 
-    <div class="soundControl">
+    <div class="soundControl" id="sound14">
       <div class="soundLabel">Lunescape</div>
       <audio class="audioPlayer" data-index="14" src="birds.mp3" autoplay loop></audio>
       <input 
@@ -266,12 +302,13 @@
         class="volumeControl"
         data-index="14"
         min="0" max="1" step="0.01" value="0"
-        style="--thumb-img: url('imgs/logo.png');"
+        style="--thumb-img: url('imgs/icon.png');"
         aria-label="Volume control for Birds sound"
       >
+      <button class="favorite-btn">★</button>
     </div>
 
-    <div class="soundControl">
+    <div class="soundControl" id="sound15">
       <div class="soundLabel">Mountain Stream (on rampage)</div>
       <audio class="audioPlayer" data-index="15" src="minkewhale.mp3" autoplay loop></audio>
       <input 
@@ -279,9 +316,10 @@
         class="volumeControl"
         data-index="15"
         min="0" max="1" step="0.01" value="0"
-        style="--thumb-img: url('imgs/logo.png');"
+        style="--thumb-img: url('imgs/icon.png');"
         aria-label="Volume control for Minke Whale sound"
       >
+      <button class="favorite-btn">★</button>
     </div>
 
 
@@ -289,7 +327,7 @@
 
 
     
-    <div class="soundControl">
+    <div class="soundControl" id="sound16">
       <div class="soundLabel">Babbling Brook</div>
       <audio class="audioPlayer" data-index="1" src="rain.mp3" autoplay loop></audio>
       <input 
@@ -300,9 +338,10 @@
         style="--thumb-img: url('imgs/heavy.rain.jpeg');"
         aria-label="Volume control for Rain sound"
       >
+      <button class="favorite-btn">★</button>
     </div>
 
-    <div class="soundControl">
+    <div class="soundControl" id="sound17">
       <div class="soundLabel">Birds in City Park</div>
       <audio class="audioPlayer" data-index="2" src="birds.mp3" autoplay loop></audio>
       <input 
@@ -310,12 +349,13 @@
         class="volumeControl"
         data-index="2"
         min="0" max="1" step="0.01" value="0"
-        style="--thumb-img: url('imgs/logo.png');"
+        style="--thumb-img: url('imgs/icon.png');"
         aria-label="Volume control for Birds sound"
       >
+      <button class="favorite-btn">★</button>
     </div>
 
-    <div class="soundControl">
+    <div class="soundControl" id="sound18">
       <div class="soundLabel">Blackbird and Sparrow</div>
       <audio class="audioPlayer" data-index="3" src="minkewhale.mp3" autoplay loop></audio>
       <input 
@@ -323,14 +363,15 @@
         class="volumeControl"
         data-index="3"
         min="0" max="1" step="0.01" value="0"
-        style="--thumb-img: url('imgs/logo.png');"
+        style="--thumb-img: url('imgs/icon.png');"
         aria-label="Volume control for Minke Whale sound"
       >
+      <button class="favorite-btn">★</button>
     </div>
 
 
 
-    <div class="soundControl">
+    <div class="soundControl" id="sound19">
       <div class="soundLabel">Blizzard</div>
       <audio class="audioPlayer" data-index="4" src="rain.mp3" autoplay loop></audio>
       <input 
@@ -338,12 +379,13 @@
         class="volumeControl"
         data-index="4"
         min="0" max="1" step="0.01" value="0"
-        style="--thumb-img: url('imgs/logo.png');"
+        style="--thumb-img: url('imgs/icon.png');"
         aria-label="Volume control for Rain sound"
       >
+      <button class="favorite-btn">★</button>
     </div>
 
-    <div class="soundControl">
+    <div class="soundControl" id="sound20">
       <div class="soundLabel">Children in the Rain</div>
       <audio class="audioPlayer" data-index="5" src="birds.mp3" autoplay loop></audio>
       <input 
@@ -351,12 +393,13 @@
         class="volumeControl"
         data-index="5"
         min="0" max="1" step="0.01" value="0"
-        style="--thumb-img: url('imgs/logo.png');"
+        style="--thumb-img: url('imgs/icon.png');"
         aria-label="Volume control for Birds sound"
       >
+      <button class="favorite-btn">★</button>
     </div>
 
-    <div class="soundControl">
+    <div class="soundControl" id="sound21">
       <div class="soundLabel">Continuous Thunder</div>
       <audio class="audioPlayer" data-index="6" src="minkewhale.mp3" autoplay loop></audio>
       <input 
@@ -364,12 +407,13 @@
         class="volumeControl"
         data-index="6"
         min="0" max="1" step="0.01" value="0"
-        style="--thumb-img: url('imgs/logo.png');"
+        style="--thumb-img: url('imgs/icon.png');"
         aria-label="Volume control for Minke Whale sound"
       >
+      <button class="favorite-btn">★</button>
     </div>
 
-        <div class="soundControl">
+        <div class="soundControl" id="sound22">
       <div class="soundLabel">Cougar</div>
       <audio class="audioPlayer" data-index="7" src="rain.mp3" autoplay loop></audio>
       <input 
@@ -377,12 +421,13 @@
         class="volumeControl"
         data-index="7"
         min="0" max="1" step="0.01" value="0"
-        style="--thumb-img: url('imgs/logo.png');"
+        style="--thumb-img: url('imgs/icon.png');"
         aria-label="Volume control for Rain sound"
       >
+      <button class="favorite-btn">★</button>
     </div>
 
-    <div class="soundControl">
+    <div class="soundControl" id="sound23">
       <div class="soundLabel">Cricket</div>
       <audio class="audioPlayer" data-index="8" src="birds.mp3" autoplay loop></audio>
       <input 
@@ -390,12 +435,13 @@
         class="volumeControl"
         data-index="8"
         min="0" max="1" step="0.01" value="0"
-        style="--thumb-img: url('imgs/logo.png');"
+        style="--thumb-img: url('imgs/icon.png');"
         aria-label="Volume control for Birds sound"
       >
+      <button class="favorite-btn">★</button>
     </div>
 
-    <div class="soundControl">
+    <div class="soundControl" id="sound24">
       <div class="soundLabel">Earthquake</div>
       <audio class="audioPlayer" data-index="9" src="minkewhale.mp3" autoplay loop></audio>
       <input 
@@ -403,12 +449,13 @@
         class="volumeControl"
         data-index="9"
         min="0" max="1" step="0.01" value="0"
-        style="--thumb-img: url('imgs/logo.png');"
+        style="--thumb-img: url('imgs/icon.png');"
         aria-label="Volume control for Minke Whale sound"
       >
+      <button class="favorite-btn">★</button>
     </div>
 
-        <div class="soundControl">
+        <div class="soundControl" id="sound25">
       <div class="soundLabel">GUlls</div>
       <audio class="audioPlayer" data-index="10" src="rain.mp3" autoplay loop></audio>
       <input 
@@ -416,12 +463,13 @@
         class="volumeControl"
         data-index="10"
         min="0" max="1" step="0.01" value="0"
-        style="--thumb-img: url('imgs/logo.png');"
+        style="--thumb-img: url('imgs/icon.png');"
         aria-label="Volume control for Rain sound"
       >
+      <button class="favorite-btn">★</button>
     </div>
 
-    <div class="soundControl">
+    <div class="soundControl" id="sound26">
       <div class="soundLabel">Heavy Rain(into flood)</div>
       <audio class="audioPlayer" data-index="11" src="birds.mp3" autoplay loop></audio>
       <input 
@@ -429,12 +477,13 @@
         class="volumeControl"
         data-index="11"
         min="0" max="1" step="0.01" value="0"
-        style="--thumb-img: url('imgs/logo.png');"
+        style="--thumb-img: url('imgs/icon.png');"
         aria-label="Volume control for Birds sound"
       >
+      <button class="favorite-btn">★</button>
     </div>
 
-    <div class="soundControl">
+    <div class="soundControl" id="sound27">
       <div class="soundLabel">Hot Summer Day in the Country</div>
       <audio class="audioPlayer" data-index="12" src="minkewhale.mp3" autoplay loop></audio>
       <input 
@@ -442,12 +491,13 @@
         class="volumeControl"
         data-index="12"
         min="0" max="1" step="0.01" value="0"
-        style="--thumb-img: url('imgs/logo.png');"
+        style="--thumb-img: url('imgs/icon.png');"
         aria-label="Volume control for Minke Whale sound"
       >
+      <button class="favorite-btn">★</button>
     </div>
 
-        <div class="soundControl">
+        <div class="soundControl" id="sound28">
       <div class="soundLabel">Lightning(synth)</div>
       <audio class="audioPlayer" data-index="13" src="rain.mp3" autoplay loop></audio>
       <input 
@@ -455,12 +505,13 @@
         class="volumeControl"
         data-index="13"
         min="0" max="1" step="0.01" value="0"
-        style="--thumb-img: url('imgs/logo.png');"
+        style="--thumb-img: url('imgs/icon.png');"
         aria-label="Volume control for Rain sound"
       >
+      <button class="favorite-btn">★</button>
     </div>
 
-    <div class="soundControl">
+    <div class="soundControl" id="sound29">
       <div class="soundLabel">Lunescape</div>
       <audio class="audioPlayer" data-index="14" src="birds.mp3" autoplay loop></audio>
       <input 
@@ -468,12 +519,13 @@
         class="volumeControl"
         data-index="14"
         min="0" max="1" step="0.01" value="0"
-        style="--thumb-img: url('imgs/logo.png');"
+        style="--thumb-img: url('imgs/icon.png');"
         aria-label="Volume control for Birds sound"
       >
+      <button class="favorite-btn">★</button>
     </div>
 
-    <div class="soundControl">
+    <div class="soundControl" id="sound30">
       <div class="soundLabel">Mountain Stream (on rampage)</div>
       <audio class="audioPlayer" data-index="15" src="minkewhale.mp3" autoplay loop></audio>
       <input 
@@ -481,9 +533,10 @@
         class="volumeControl"
         data-index="15"
         min="0" max="1" step="0.01" value="0"
-        style="--thumb-img: url('imgs/logo.png');"
+        style="--thumb-img: url('imgs/icon.png');"
         aria-label="Volume control for Minke Whale sound"
       >
+      <button class="favorite-btn">★</button>
     </div>
 
 
@@ -493,12 +546,7 @@
       <img style="height: 70vh; position: fixed; z-index:2; top: 30%; opacity: 20%;" src="imgs/bg.png" alt="">
     </div> 
 
-
-
   <footer> 
-
-        <p>    
-        </p>  
 </footer>
 
 
@@ -524,34 +572,213 @@
 
 </div>
 
+  <script>
+    const timeInput = document.getElementById('time');
+    const setBtn = document.getElementById('setBtn');
+    const cancelBtn = document.getElementById('cancelBtn');
+    const statusEl = document.getElementById('status');
+
+    let fireTimeout = null;
+    let targetTs = null;
+
+    function schedule(){
+      if(!timeInput.value){ statusEl.textContent = 'Pick a time!'; return; }
+      const [hh, mm, ss='0'] = timeInput.value.split(':').map(Number);
+      const now = new Date();
+      const target = new Date();
+      target.setHours(hh, mm, ss, 0);
+      if(target <= now) target.setDate(target.getDate()+1);
+      targetTs = target.getTime();
+      const ms = targetTs - Date.now();
+      fireTimeout = setTimeout(()=>location.reload(), ms);
+      statusEl.textContent = `Alarm set for ${target.toLocaleTimeString()}`;
+      setBtn.disabled = true;
+      cancelBtn.disabled = false;
+    }
+
+    function cancel(){
+      clearTimeout(fireTimeout);
+      targetTs = null;
+      statusEl.textContent = 'Alarm canceled.';
+      setBtn.disabled = false;
+      cancelBtn.disabled = true;
+    }
+
+    setBtn.addEventListener('click', schedule);
+    cancelBtn.addEventListener('click', cancel);
+  </script>
+
+
 <script>
-  const circle = document.getElementById('circle');
-  let startY = 0;
-  let isDragging = false;
+document.querySelectorAll(".corner-icon").forEach(icon => {
+  icon.addEventListener("click", (e) => {
+    e.preventDefault();
+    const targetId = icon.getAttribute("data-overlay");
+    const overlay = document.getElementById(targetId);
 
-  // Click to expand
-  circle.addEventListener('click', () => {
-    circle.classList.toggle('expanded');
+    if (overlay) {
+      overlay.classList.add("active");
+
+      // Hide overlay when clicked
+      overlay.addEventListener("click", () => {
+        overlay.classList.remove("active");
+      }, { once: true });
+    }
+  });
+});
+</script>
+
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const STORAGE_KEY = "favorites";
+
+  // Load saved favorites
+  const saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || "[]");
+
+  // Initialize all sound controls
+  document.querySelectorAll(".soundControl").forEach(control => {
+    const btn = control.querySelector(".favorite-btn");
+    const id = control.id; // must exist!
+
+    if (saved.includes(id)) {
+      btn.classList.add("favorited");
+    }
+
+    btn.addEventListener("click", () => {
+      btn.classList.toggle("favorited");
+
+      const newFavs = Array.from(document.querySelectorAll(".favorite-btn.favorited"))
+        .map(b => b.closest(".soundControl").id);
+
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(newFavs));
+    });
+  });
+});
+</script>
+
+
+
+<script>
+  const circle = document.querySelector('.circle');
+circle.classList.add('glow');
+circle.addEventListener('animationend', () => {
+  circle.classList.remove('glow'); // reset so it can glow again later
+});
+
+</script>
+
+<script>
+  const canvas = document.getElementById("visualizer");
+  const ctx = canvas.getContext("2d");
+
+  function resizeCanvas() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+  }
+  window.addEventListener("resize", resizeCanvas);
+  resizeCanvas();
+
+  // Web Audio setup
+  const AudioContext = window.AudioContext || window.webkitAudioContext;
+  const audioCtx = new AudioContext();
+  const analyser = audioCtx.createAnalyser();
+  analyser.fftSize = 256;
+
+  const bufferLength = analyser.frequencyBinCount;
+  const dataArray = new Uint8Array(bufferLength);
+
+  // Connect all <audio> elements
+  document.querySelectorAll(".audioPlayer").forEach(audio => {
+    const src = audioCtx.createMediaElementSource(audio);
+    src.connect(analyser);
+    src.connect(audioCtx.destination);
   });
 
-  // Swipe up to expand
-  circle.addEventListener('touchstart', (e) => {
-    startY = e.touches[0].clientY;
-    isDragging = true;
-  });
+  function draw() {
+    requestAnimationFrame(draw);
+    analyser.getByteFrequencyData(dataArray);
 
-  circle.addEventListener('touchmove', (e) => {
-    if (!isDragging) return;
-    let currentY = e.touches[0].clientY;
-    if (startY - currentY > 50) {
-      circle.classList.add('expanded');
-      isDragging = false;
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    const barWidth = (canvas.width / bufferLength) * 2.5;
+    let x = 0;
+
+    for (let i = 0; i < bufferLength; i++) {
+      const barHeight = dataArray[i] * 1.2;
+
+      const r = 50 + (i * 2);
+      const g = 200 - (i * 2);
+      const b = 150 + (i % 50);
+      ctx.fillStyle = `rgb(${r},${g},${b})`;
+      ctx.fillRect(x, canvas.height - barHeight, barWidth, barHeight);
+
+      x += barWidth + 1;
+    }
+  }
+
+  draw();
+
+  // Resume audio context on user gesture (required by browsers)
+  document.body.addEventListener("click", () => {
+    if (audioCtx.state === "suspended") {
+      audioCtx.resume();
+    }
+  });
+</script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const circleEl = document.getElementById('circle');
+  if (!circleEl) return;
+
+  // --- One-time delayed glow (2s) ---
+  // If your CSS already has "animation-delay: 2s" on .circle.glow, set delayMs = 0.
+  const delayMs = 2000; 
+  setTimeout(() => {
+    circleEl.classList.add('glow');
+  }, delayMs);
+
+  circleEl.addEventListener('animationend', (e) => {
+    if (e.animationName === 'glowPulse') {
+      circleEl.classList.remove('glow'); // reset so it can glow again later
     }
   });
 
-  circle.addEventListener('touchend', () => {
+  // --- Click to expand/collapse ---
+  let startY = 0;
+  let isDragging = false;
+  let didSwipe = false;
+
+  circleEl.addEventListener('click', () => {
+    if (didSwipe) { 
+      // Prevent click toggle right after a swipe
+      didSwipe = false; 
+      return; 
+    }
+    circleEl.classList.toggle('expanded');
+  });
+
+  // --- Swipe up to expand ---
+  circleEl.addEventListener('touchstart', (e) => {
+    startY = e.touches[0].clientY;
+    isDragging = true;
+    didSwipe = false;
+  }, { passive: true });
+
+  circleEl.addEventListener('touchmove', (e) => {
+    if (!isDragging) return;
+    const currentY = e.touches[0].clientY;
+    if (startY - currentY > 50) {
+      circleEl.classList.add('expanded');
+      isDragging = false;
+      didSwipe = true;
+    }
+  }, { passive: true });
+
+  circleEl.addEventListener('touchend', () => {
     isDragging = false;
   });
+});
 </script>
 
 
