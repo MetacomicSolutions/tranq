@@ -3,8 +3,8 @@
   "short_name": "Tranq",
   "start_url": ".",
   "display": "standalone",
-  "background_color": "#131313",
-  "theme_color": "#131313",
+  "background_color": "#000000",
+  "theme_color": "#000000",
   "icons": [
     {
       "src": "imgs/icon.png",
@@ -18,3 +18,4 @@
     }
   ]
 }
+
