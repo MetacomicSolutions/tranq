@@ -346,7 +346,7 @@
       background-size: contain;
       z-index: 5000;
       border: none;
-      border-radius: 8px;
+      border-radius: 50%;
       margin-top: calc(-1 * (clamp(40px, 10vw, 60px) / 2) + 7px);
       cursor: pointer;
       box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
