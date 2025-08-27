@@ -171,6 +171,68 @@
       font-size: 2rem;
     }
 
+/* dreamy floating animation */
+@keyframes popupFadeIn {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.8);
+    filter: blur(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+    filter: blur(0);
+  }
+}
+
+@keyframes popupFadeOut {
+  0% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+    filter: blur(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.8);
+    filter: blur(10px);
+  }
+}
+
+.info-popup {
+  display: none;
+  position: fixed;
+  left: 50%;
+  top: 60%;
+  transform: translate(-50%, -50%);
+  
+  background: rgba(0, 0, 0, 0.85);
+  color: #fff;
+  padding: 40px 90px;
+  text-align: center;
+  border-radius: 20px;
+  font-size: 2.5rem;
+  min-height: 15vh;
+  min-width: 800px;
+  max-width: 80vw;
+  
+  z-index: 1000;
+  box-shadow: 0 0 40px rgba(173, 216, 230, 0.5); /* soft glowing edge */
+  
+  backdrop-filter: blur(12px); /* dreamy glassy feel */
+}
+
+/* When active, animate in */
+.info-popup.active {
+  display: block;
+  animation: popupFadeIn 1s ease forwards;
+  z-index: 1000 !important;
+}
+
+/* Optional: when hiding, animate out */
+.info-popup.closing {
+  animation: popupFadeOut 0.8s ease forwards;
+}
+
 
 
 .close-btn {

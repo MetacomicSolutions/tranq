@@ -32,6 +32,35 @@
 
 <style>
 
+  .info-btn {
+  margin-left: 8px;
+  font-size: 0.8rem;
+  border: none;
+  background: #444;
+  color: white;
+  border-radius: 50%;
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+}
+
+.info-popup {
+  display: none;
+  position: absolute;
+  background: #222;
+  color: #fff;
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  margin-top: 4px;
+  z-index: 10;
+  max-width: 240px;
+}
+
+.info-popup.active {
+  display: block;
+}
+
 
 </style>
 
@@ -79,7 +108,12 @@
         </a>
 
 <div class="soundControl" id="sound1">
-  <div class="soundLabel">Heavy Rain</div>
+  <div class="soundLabel">Heavy Rain
+     <button class="info-btn" data-info="heavyRain">i</button>
+  <div class="info-popup" id="info-heavyRain">
+    A deep rainfall sound to help you relax or focus.
+  </div>
+  </div>
   <audio class="audioPlayer" data-index="1" src="rain.mp3" autoplay loop></audio>
 
   <div style="display: flex; align-items: center;">
@@ -101,7 +135,12 @@
 
 
     <div class="soundControl"id="sound2">
-      <div class="soundLabel">Fireplace</div>
+      <div class="soundLabel">Fireplace
+         <button class="info-btn" data-info="heavyRain">i</button>
+  <div class="info-popup" id="info-heavyRain">
+    A deep rainfall sound to help you relax or focus.
+  </div>
+      </div>
 
       <audio class="audioPlayer" data-index="2" src="sounds/Fireplace.mp3" autoplay loop></audio>
             <div style="display: flex; align-items: center;">
@@ -121,7 +160,12 @@
     </div>
 
     <div class="soundControl" id="sound3">
-      <div class="soundLabel">Ocean Waves</div>
+      <div class="soundLabel">Ocean Waves
+         <button class="info-btn" data-info="heavyRain">i</button>
+  <div class="info-popup" id="info-heavyRain">
+    A deep rainfall sound to help you relax or focus.
+  </div>
+      </div>
       <audio class="audioPlayer" data-index="3" src="sounds/Ocean waves.mp3" autoplay loop></audio>
        <div style="display: flex; align-items: center;">
           <div style="flex: 1;">
@@ -143,7 +187,12 @@
 
 
     <div class="soundControl" id="sound4">
-      <div class="soundLabel">Blizzard</div>
+      <div class="soundLabel">Blizzard
+         <button class="info-btn" data-info="heavyRain">i</button>
+  <div class="info-popup" id="info-heavyRain">
+    A deep rainfall sound to help you relax or focus.
+  </div>
+      </div>
       <audio class="audioPlayer" data-index="4" src="sounds/blizzard.mp3" autoplay loop></audio>
       <div style="display: flex; align-items: center;">
           <div style="flex: 1;">
@@ -161,7 +210,12 @@
     </div>
 
     <div class="soundControl" id="sound5">
-      <div class="soundLabel">Nightime</div>
+      <div class="soundLabel">Nightime
+         <button class="info-btn" data-info="heavyRain">i</button>
+  <div class="info-popup" id="info-heavyRain">
+    A deep rainfall sound to help you relax or focus.
+  </div>
+      </div>
       <audio class="audioPlayer" data-index="5" src="sounds/Nightime.mp3" autoplay loop></audio>
       <div style="display: flex; align-items: center;">
           <div style="flex: 1;">
@@ -179,7 +233,12 @@
     </div>
 
     <div class="soundControl" id="sound6">
-      <div class="soundLabel">Continuous Thunder</div>
+      <div class="soundLabel">Continuous Thunder
+         <button class="info-btn" data-info="heavyRain">i</button>
+  <div class="info-popup" id="info-heavyRain">
+    A deep rainfall sound to help you relax or focus.
+  </div>
+      </div>
       <audio class="audioPlayer" data-index="6" src="sounds/Perfect thunder storm.mp3" autoplay loop></audio>
       <div style="display: flex; align-items: center;">
           <div style="flex: 1;">
@@ -197,7 +256,12 @@
     </div>
 
         <div class="soundControl" id="sound7">
-      <div class="soundLabel">Light rain and crickets</div>
+      <div class="soundLabel">Light rain and crickets
+         <button class="info-btn" data-info="heavyRain">i</button>
+  <div class="info-popup" id="info-heavyRain">
+    A deep rainfall sound to help you relax or focus.
+  </div>
+      </div>
       <audio class="audioPlayer" data-index="7" src="sounds/Light rain and crickets.mp3" autoplay loop></audio>
       <div style="display: flex; align-items: center;">
           <div style="flex: 1;">
@@ -215,7 +279,12 @@
     </div>
 
     <div class="soundControl" id="sound8">
-      <div class="soundLabel">Rainforest Ambience</div>
+      <div class="soundLabel">Rainforest Ambience
+         <button class="info-btn" data-info="heavyRain">i</button>
+  <div class="info-popup" id="info-heavyRain">
+    A deep rainfall sound to help you relax or focus.
+  </div>
+      </div>
       <audio class="audioPlayer" data-index="8" src="sounds/Rainforest ambience.mp3" autoplay loop></audio>
       <div style="display: flex; align-items: center;">
           <div style="flex: 1;">
@@ -233,7 +302,12 @@
     </div>
 
     <div class="soundControl" id="sound9">
-      <div class="soundLabel">Slow Breathing</div>
+      <div class="soundLabel">Slow Breathing
+         <button class="info-btn" data-info="heavyRain">i</button>
+  <div class="info-popup" id="info-heavyRain">
+    A deep rainfall sound to help you relax or focus.
+  </div>
+      </div>
       <audio class="audioPlayer" data-index="9" src="sounds/Slow breathing.mp3" autoplay loop></audio>
       <div style="display: flex; align-items: center;">
           <div style="flex: 1;">
@@ -251,7 +325,12 @@
     </div>
 
         <div class="soundControl" id="sound10">
-      <div class="soundLabel">Slow Heartbeat</div>
+      <div class="soundLabel">Slow Heartbeat
+         <button class="info-btn" data-info="heavyRain">i</button>
+  <div class="info-popup" id="info-heavyRain">
+    A deep rainfall sound to help you relax or focus.
+  </div>
+      </div>
       <audio class="audioPlayer" data-index="10" src="rain.mp3" autoplay loop></audio>
       <div style="display: flex; align-items: center;">
           <div style="flex: 1;">
@@ -269,7 +348,12 @@
     </div>
 
     <div class="soundControl" id="sound11">
-      <div class="soundLabel">Cat Purring</div>
+      <div class="soundLabel">Cat Purring
+         <button class="info-btn" data-info="heavyRain">i</button>
+  <div class="info-popup" id="info-heavyRain">
+    A deep rainfall sound to help you relax or focus.
+  </div>
+      </div>
       <audio class="audioPlayer" data-index="11" src="birds.mp3" autoplay loop></audio>
       <div style="display: flex; align-items: center;">
           <div style="flex: 1;">
@@ -287,7 +371,12 @@
     </div>
 
     <div class="soundControl" id="sound12">
-      <div class="soundLabel">Hot Summer Day </div>
+      <div class="soundLabel">Hot Summer Day
+         <button class="info-btn" data-info="heavyRain">i</button>
+  <div class="info-popup" id="info-heavyRain">
+    A deep rainfall sound to help you relax or focus.
+  </div>
+      </div>
       <audio class="audioPlayer" data-index="12" src="minkewhale.mp3" autoplay loop></audio>
       <div style="display: flex; align-items: center;">
           <div style="flex: 1;">
@@ -305,7 +394,12 @@
     </div>
 
         <div class="soundControl" id="sound13">
-      <div class="soundLabel">Lightning(synth)</div>
+      <div class="soundLabel">Lightning(synth)
+         <button class="info-btn" data-info="heavyRain">i</button>
+  <div class="info-popup" id="info-heavyRain">
+    A deep rainfall sound to help you relax or focus.
+  </div>
+      </div>
       <audio class="audioPlayer" data-index="13" src="rain.mp3" autoplay loop></audio>
       <div style="display: flex; align-items: center;">
           <div style="flex: 1;">
@@ -323,7 +417,12 @@
     </div>
 
     <div class="soundControl" id="sound14">
-      <div class="soundLabel">Lunescape</div>
+      <div class="soundLabel">Lunescape
+         <button class="info-btn" data-info="heavyRain">i</button>
+  <div class="info-popup" id="info-heavyRain">
+    A deep rainfall sound to help you relax or focus.
+  </div>
+      </div>
       <audio class="audioPlayer" data-index="14" src="birds.mp3" autoplay loop></audio>
       <div style="display: flex; align-items: center;">
           <div style="flex: 1;">
@@ -341,7 +440,12 @@
     </div>
 
     <div class="soundControl" id="sound15">
-      <div class="soundLabel">Mountain Stream</div>
+      <div class="soundLabel">Mountain Stream
+         <button class="info-btn" data-info="heavyRain">i</button>
+  <div class="info-popup" id="info-heavyRain">
+    A deep rainfall sound to help you relax or focus.
+  </div>
+      </div>
       <audio class="audioPlayer" data-index="15" src="minkewhale.mp3" autoplay loop></audio>
       <div style="display: flex; align-items: center;">
           <div style="flex: 1;">
@@ -364,7 +468,10 @@
 
     
     <div class="soundControl" id="sound16">
-      <div class="soundLabel">Classical Music</div>
+      <div class="soundLabel">Classical Music <button class="info-btn" data-info="heavyRain">i</button>
+  <div class="info-popup" id="info-heavyRain">
+    A deep rainfall sound to help you relax or focus.
+  </div></div>
       <div style="display: flex; align-items: center;">
           <div style="flex: 1;">
       <audio class="audioPlayer" data-index="1" src="rain.mp3" autoplay loop></audio>
@@ -382,7 +489,10 @@
     </div>
 
     <div class="soundControl" id="sound17">
-      <div class="soundLabel">Binaural Beats🎧</div>
+      <div class="soundLabel">Binaural Beats🎧 <button class="info-btn" data-info="heavyRain">i</button>
+  <div class="info-popup" id="info-heavyRain">
+    A deep rainfall sound to help you relax or focus.
+  </div></div>
       <audio class="audioPlayer" data-index="2" src="birds.mp3" autoplay loop></audio>
       <div style="display: flex; align-items: center;">
           <div style="flex: 1;">
@@ -400,7 +510,10 @@
     </div>
 
     <div class="soundControl" id="sound18">
-      <div class="soundLabel">Lofi Beats</div>
+      <div class="soundLabel">Lofi Beats <button class="info-btn" data-info="heavyRain">i</button>
+  <div class="info-popup" id="info-heavyRain">
+    A deep rainfall sound to help you relax or focus.
+  </div></div>
       <audio class="audioPlayer" data-index="3" src="minkewhale.mp3" autoplay loop></audio>
       <div style="display: flex; align-items: center;">
           <div style="flex: 1;">
@@ -420,7 +533,12 @@
 
 
     <div class="soundControl" id="sound19">
-      <div class="soundLabel">528hz</div>
+      <div class="soundLabel">528hz(Solfeggio)
+         <button class="info-btn" data-info="heavyRain">i</button>
+  <div class="info-popup" id="info-heavyRain">
+    A deep rainfall sound to help you relax or focus.
+  </div>
+      </div>
       <audio class="audioPlayer" data-index="4" src="rain.mp3" autoplay loop></audio>
       <div style="display: flex; align-items: center;">
           <div style="flex: 1;">
@@ -438,7 +556,12 @@
     </div>
 
     <div class="soundControl" id="sound20">
-      <div class="soundLabel">60hz</div>
+      <div class="soundLabel">60hz(Relaxing)
+         <button class="info-btn" data-info="heavyRain">i</button>
+  <div class="info-popup" id="info-heavyRain">
+    A deep rainfall sound to help you relax or focus.
+  </div>
+      </div>
       <audio class="audioPlayer" data-index="5" src="birds.mp3" autoplay loop></audio>
       <div style="display: flex; align-items: center;">
           <div style="flex: 1;">
@@ -456,7 +579,12 @@
     </div>
 
     <div class="soundControl" id="sound21">
-      <div class="soundLabel">Delta State 🎧</div>
+      <div class="soundLabel">Delta State 🎧
+         <button class="info-btn" data-info="heavyRain">i</button>
+  <div class="info-popup" id="info-heavyRain">
+    A deep rainfall sound to help you relax or focus.
+  </div>
+      </div>
       <audio class="audioPlayer" data-index="6" src="minkewhale.mp3" autoplay loop></audio>
       <div style="display: flex; align-items: center;">
           <div style="flex: 1;">
@@ -474,7 +602,12 @@
     </div>
 
         <div class="soundControl" id="sound22">
-      <div class="soundLabel">Alpha State 🎧</div>
+      <div class="soundLabel">Alpha State 🎧
+         <button class="info-btn" data-info="heavyRain">i</button>
+  <div class="info-popup" id="info-heavyRain">
+    A deep rainfall sound to help you relax or focus.
+  </div>
+      </div>
       <audio class="audioPlayer" data-index="7" src="rain.mp3" autoplay loop></audio>
       <div style="display: flex; align-items: center;">
           <div style="flex: 1;">
@@ -492,7 +625,12 @@
     </div>
 
     <div class="soundControl" id="sound23">
-      <div class="soundLabel">Theta State 🎧</div>
+      <div class="soundLabel">Theta State 🎧
+         <button class="info-btn" data-info="heavyRain">i</button>
+  <div class="info-popup" id="info-heavyRain">
+    A deep rainfall sound to help you relax or focus.
+  </div>
+      </div>
       <audio class="audioPlayer" data-index="8" src="birds.mp3" autoplay loop></audio>
       <div style="display: flex; align-items: center;">
           <div style="flex: 1;">
@@ -510,7 +648,12 @@
     </div>
 
     <div class="soundControl" id="sound24">
-      <div class="soundLabel">Earthquake</div>
+      <div class="soundLabel">Earthquake
+         <button class="info-btn" data-info="heavyRain">i</button>
+  <div class="info-popup" id="info-heavyRain">
+    A deep rainfall sound to help you relax or focus.
+  </div>
+      </div>
       <audio class="audioPlayer" data-index="9" src="minkewhale.mp3" autoplay loop></audio>
       <div style="display: flex; align-items: center;">
           <div style="flex: 1;">
@@ -528,7 +671,12 @@
     </div>
 
         <div class="soundControl" id="sound25">
-      <div class="soundLabel">GUlls</div>
+      <div class="soundLabel">GUlls
+         <button class="info-btn" data-info="heavyRain">i</button>
+  <div class="info-popup" id="info-heavyRain">
+    A deep rainfall sound to help you relax or focus.
+  </div>
+      </div>
       <audio class="audioPlayer" data-index="10" src="rain.mp3" autoplay loop></audio>
       <div style="display: flex; align-items: center;">
           <div style="flex: 1;"> 
@@ -546,7 +694,12 @@
     </div>
 
     <div class="soundControl" id="sound26">
-      <div class="soundLabel">Heavy Rain(into flood)</div>
+      <div class="soundLabel">Heavy Rain(into flood)
+         <button class="info-btn" data-info="heavyRain">i</button>
+  <div class="info-popup" id="info-heavyRain">
+    A deep rainfall sound to help you relax or focus.
+  </div>
+      </div>
       <audio class="audioPlayer" data-index="11" src="birds.mp3" autoplay loop></audio>
       <div style="display: flex; align-items: center;">
           <div style="flex: 1;">
@@ -564,7 +717,12 @@
     </div>
 
     <div class="soundControl" id="sound27">
-      <div class="soundLabel">Hot Summer Day </div>
+      <div class="soundLabel">Hot Summer Day
+         <button class="info-btn" data-info="heavyRain">i</button>
+  <div class="info-popup" id="info-heavyRain">
+    A deep rainfall sound to help you relax or focus.
+  </div>
+      </div>
       <audio class="audioPlayer" data-index="12" src="minkewhale.mp3" autoplay loop></audio>
       <div style="display: flex; align-items: center;">
           <div style="flex: 1;">
@@ -582,7 +740,12 @@
     </div>
 
         <div class="soundControl" id="sound28">
-      <div class="soundLabel">Lightning(synth)</div>
+      <div class="soundLabel">Lightning(synth)
+         <button class="info-btn" data-info="heavyRain">i</button>
+  <div class="info-popup" id="info-heavyRain">
+    A deep rainfall sound to help you relax or focus.
+  </div>
+      </div>
       <audio class="audioPlayer" data-index="13" src="rain.mp3" autoplay loop></audio>
       <div style="display: flex; align-items: center;">
           <div style="flex: 1;">
@@ -600,7 +763,12 @@
     </div>
 
     <div class="soundControl" id="sound29">
-      <div class="soundLabel">Lunescape</div>
+      <div class="soundLabel">Lunescape
+         <button class="info-btn" data-info="heavyRain">i</button>
+  <div class="info-popup" id="info-heavyRain">
+    A deep rainfall sound to help you relax or focus.
+  </div>
+      </div>
       <audio class="audioPlayer" data-index="14" src="birds.mp3" autoplay loop></audio>
       <div style="display: flex; align-items: center;">
           <div style="flex: 1;">
@@ -618,7 +786,12 @@
     </div>
 
     <div class="soundControl" id="sound30">
-      <div class="soundLabel">Mountain Stream</div>
+      <div class="soundLabel">Mountain Stream
+         <button class="info-btn" data-info="heavyRain">i</button>
+  <div class="info-popup" id="info-heavyRain">
+    A deep rainfall sound to help you relax or focus.
+  </div>
+      </div>
       <audio class="audioPlayer" data-index="15" src="minkewhale.mp3" autoplay loop></audio>
       <div style="display: flex; align-items: center;">
           <div style="flex: 1;">
@@ -669,6 +842,30 @@
 </div>
 
 </div>
+
+
+<script>
+  document.querySelectorAll('.info-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const infoId = btn.dataset.info;
+    const popup = document.getElementById(`info-${infoId}`);
+
+    // close any open popups first
+    document.querySelectorAll('.info-popup').forEach(p => p.classList.remove('active'));
+
+    // toggle this one
+    popup.classList.toggle('active');
+  });
+});
+
+// optional: close popup if clicking outside
+document.addEventListener('click', e => {
+  if (!e.target.classList.contains('info-btn')) {
+    document.querySelectorAll('.info-popup').forEach(p => p.classList.remove('active'));
+  }
+});
+
+</script>
 
 <script src="scripts.js"></script>
 
