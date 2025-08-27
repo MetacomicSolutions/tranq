@@ -27,80 +27,48 @@
     <link rel="apple-touch-icon" sizes="192x192" href="imgs/icon.png">
 
     <!-- Windows Tiles -->
-    <meta name="msapplication-TileColor" content="#131313">
+    <meta name="msapplication-TileColor" content="#000000">
     <meta name="msapplication-TileImage" content="imgs/icon.png">
 
 <style>
-  .corner-icon {
-  position: fixed;
-  top: 20px;
-  z-index: 1000;
-  width: 120px;
-  height: 120px;
-  cursor: pointer;
-}
-.corner-icon img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  border-radius: 50%;
-  transition: transform 0.2s ease;
-}
-.corner-icon:hover img {
-  transform: scale(1.1);
-}
-.left-corner { left: 20px; }
-.right-corner { right: 20px; }
 
-/* Overlay styles */
-.overlay {
-  position: fixed;
-  top: 0; left: 0;
-  width: 100vw; height: 100vh;
-  background: rgba(0,0,0,0.85);
-  display: none;
-  z-index: 2000;
-  cursor: pointer;
-}
-.overlay.active {
-  display: block;
-  animation: fadeIn 0.4s ease;
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to   { opacity: 1; }
-}
 
 </style>
 
 </head>
 <body>
 
+<div class="stars"></div>
 
 
 <a href="#" class="corner-icon left-corner" data-overlay="overlay-left">
   <img src="imgs/wave.jpg" alt="Left Icon">
 </a>
 
-<a href="#" class="corner-icon right-corner" data-overlay="overlay-right">
+<a href="#" class="corner-icon right-corner" id="show-backdrop">
   <img src="imgs/alarm.jpg" alt="Right Icon">
 </a>
+
+
 
 <!-- Overlays -->
 <div id="overlay-left" class="overlay">
    <canvas id="visualizer"></canvas>
 </div>
 <div id="overlay-right" class="overlay">
-<div>
-
-  <input style="width: 100%;" id="time" type="time" step="1">
-  <button id="setBtn">Set Time</button>
-  <button id="cancelBtn" disabled>Cancel</button>
-  <div id="status">No Time set.</div>
-
 </div>
-</div>
+
+  <div id="backdrop">
+    <div id="backdrop-box">
+       <div class="alarm-container">
+    <input id="alarm-time" class="alarm-input" type="time" step="1">
+    <button id="alarm-setBtn" class="alarm-button">Set Time</button>
+    <button id="alarm-cancelBtn" class="alarm-button" disabled>Cancel</button>
+    <div id="alarm-status" class="alarm-status">No Time set.</div>
+  </div>
+      <button id="dismiss-btn">Close</button> 
+    </div>
+  </div>
 
 
 
@@ -110,37 +78,51 @@
           <img class="logo" style="height: 12vh; margin-top: 6vh;" src="imgs/logo5.png" alt="">
         </a>
 
-    <div class="soundControl" id="sound1">
-      <div class="soundLabel">Babbling Brook</div>
-      <audio class="audioPlayer" data-index="1" src="rain.mp3" autoplay loop></audio>
-      <input 
+<div class="soundControl" id="sound1">
+  <div class="soundLabel">Heavy Rain</div>
+  <audio class="audioPlayer" data-index="1" src="rain.mp3" autoplay loop></audio>
+
+  <div style="display: flex; align-items: center;">
+    <div style="flex: 1;">
+      <input
         type="range"
         class="volumeControl"
         data-index="1"
         min="0" max="1" step="0.01" value="0"
-        style="--thumb-img: url('imgs/babbling.brook.jpg');"
+        style="width: 85vw; --thumb-img: url('imgs/babbling.brook.jpg');"
         aria-label="Volume control for Rain sound"
       >
-              <button class="favorite-btn">★</button>
     </div>
+    <div style="margin-left: 14px; margin-top: -2.5rem;">
+      <button class="favorite-btn">★</button>
+    </div>
+  </div>
+</div>
+
 
     <div class="soundControl"id="sound2">
-      <div class="soundLabel">Farm at Night</div>
-      <audio class="audioPlayer" data-index="2" src="birds.mp3" autoplay loop></audio>
+      <div class="soundLabel">Fireplace</div>
+
+      <audio class="audioPlayer" data-index="2" src="sounds/Fireplace.mp3" autoplay loop></audio>
+            <div style="display: flex; align-items: center;">
+          <div style="flex: 1;">
       <input 
         type="range"
         class="volumeControl"
         data-index="2"
         min="0" max="1" step="0.01" value="0"
-        style="--thumb-img: url('imgs/farm.night.jpeg');"
+        style="width: 85vw; --thumb-img: url('imgs/farm.night.jpeg');"
         aria-label="Volume control for Birds sound"
       >
-      <button class="favorite-btn">★</button>
+      </div>
+      <div style="margin-left: 14px; margin-top: -2.5rem;">
+      <button class="favorite-btn">★</button></div>
+      </div>
     </div>
 
     <div class="soundControl" id="sound3">
-      <div class="soundLabel">Heavy Rain</div>
-      <audio class="audioPlayer" data-index="3" src="minkewhale.mp3" autoplay loop></audio>
+      <div class="soundLabel">Ocean Waves</div>
+      <audio class="audioPlayer" data-index="3" src="sounds/Ocean waves.mp3" autoplay loop></audio>
       <input 
         type="range"
         class="volumeControl"
@@ -155,8 +137,8 @@
 
 
     <div class="soundControl" id="sound4">
-      <div class="soundLabel">Mountain Stream</div>
-      <audio class="audioPlayer" data-index="4" src="rain.mp3" autoplay loop></audio>
+      <div class="soundLabel">Blizzard</div>
+      <audio class="audioPlayer" data-index="4" src="sounds/blizzard.mp3" autoplay loop></audio>
       <input 
         type="range"
         class="volumeControl"
@@ -169,8 +151,8 @@
     </div>
 
     <div class="soundControl" id="sound5">
-      <div class="soundLabel">Children in the Rain</div>
-      <audio class="audioPlayer" data-index="5" src="birds.mp3" autoplay loop></audio>
+      <div class="soundLabel">Nightime</div>
+      <audio class="audioPlayer" data-index="5" src="sounds/Nightime.mp3" autoplay loop></audio>
       <input 
         type="range"
         class="volumeControl"
@@ -184,7 +166,7 @@
 
     <div class="soundControl" id="sound6">
       <div class="soundLabel">Continuous Thunder</div>
-      <audio class="audioPlayer" data-index="6" src="minkewhale.mp3" autoplay loop></audio>
+      <audio class="audioPlayer" data-index="6" src="sounds/Perfect thunder storm.mp3" autoplay loop></audio>
       <input 
         type="range"
         class="volumeControl"
@@ -197,8 +179,8 @@
     </div>
 
         <div class="soundControl" id="sound7">
-      <div class="soundLabel">Cougar</div>
-      <audio class="audioPlayer" data-index="7" src="rain.mp3" autoplay loop></audio>
+      <div class="soundLabel">Light rain and crickets</div>
+      <audio class="audioPlayer" data-index="7" src="sounds/Light rain and crickets.mp3" autoplay loop></audio>
       <input 
         type="range"
         class="volumeControl"
@@ -211,8 +193,8 @@
     </div>
 
     <div class="soundControl" id="sound8">
-      <div class="soundLabel">Cricket</div>
-      <audio class="audioPlayer" data-index="8" src="birds.mp3" autoplay loop></audio>
+      <div class="soundLabel">Rainforest Ambience</div>
+      <audio class="audioPlayer" data-index="8" src="sounds/Rainforest ambience.mp3" autoplay loop></audio>
       <input 
         type="range"
         class="volumeControl"
@@ -225,8 +207,8 @@
     </div>
 
     <div class="soundControl" id="sound9">
-      <div class="soundLabel">Earthquake</div>
-      <audio class="audioPlayer" data-index="9" src="minkewhale.mp3" autoplay loop></audio>
+      <div class="soundLabel">Slow Breathing</div>
+      <audio class="audioPlayer" data-index="9" src="sounds/Slow breathing.mp3" autoplay loop></audio>
       <input 
         type="range"
         class="volumeControl"
@@ -239,7 +221,7 @@
     </div>
 
         <div class="soundControl" id="sound10">
-      <div class="soundLabel">GUlls</div>
+      <div class="soundLabel">Slow Heartbeat</div>
       <audio class="audioPlayer" data-index="10" src="rain.mp3" autoplay loop></audio>
       <input 
         type="range"
@@ -253,7 +235,7 @@
     </div>
 
     <div class="soundControl" id="sound11">
-      <div class="soundLabel">Heavy Rain(into flood)</div>
+      <div class="soundLabel">Cat Purring</div>
       <audio class="audioPlayer" data-index="11" src="birds.mp3" autoplay loop></audio>
       <input 
         type="range"
@@ -542,9 +524,11 @@
 
   </main>
 
-     <div>
-      <img style="height: 70vh; position: fixed; z-index:2; top: 30%; opacity: 20%;" src="imgs/bg.png" alt="">
+    <!--
+   <div style="border: none;">
+      <img style=" height: 70vh; position: fixed; z-index:4; width: 100vw; top: 30%; opacity: 100%;" src="imgs/bg.png" alt="">
     </div> 
+    -->
 
   <footer> 
 </footer>
@@ -572,243 +556,7 @@
 
 </div>
 
-  <script>
-    const timeInput = document.getElementById('time');
-    const setBtn = document.getElementById('setBtn');
-    const cancelBtn = document.getElementById('cancelBtn');
-    const statusEl = document.getElementById('status');
-
-    let fireTimeout = null;
-    let targetTs = null;
-
-    function schedule(){
-      if(!timeInput.value){ statusEl.textContent = 'Pick a time!'; return; }
-      const [hh, mm, ss='0'] = timeInput.value.split(':').map(Number);
-      const now = new Date();
-      const target = new Date();
-      target.setHours(hh, mm, ss, 0);
-      if(target <= now) target.setDate(target.getDate()+1);
-      targetTs = target.getTime();
-      const ms = targetTs - Date.now();
-      fireTimeout = setTimeout(()=>location.reload(), ms);
-      statusEl.textContent = `Alarm set for ${target.toLocaleTimeString()}`;
-      setBtn.disabled = true;
-      cancelBtn.disabled = false;
-    }
-
-    function cancel(){
-      clearTimeout(fireTimeout);
-      targetTs = null;
-      statusEl.textContent = 'Alarm canceled.';
-      setBtn.disabled = false;
-      cancelBtn.disabled = true;
-    }
-
-    setBtn.addEventListener('click', schedule);
-    cancelBtn.addEventListener('click', cancel);
-  </script>
-
-
-<script>
-document.querySelectorAll(".corner-icon").forEach(icon => {
-  icon.addEventListener("click", (e) => {
-    e.preventDefault();
-    const targetId = icon.getAttribute("data-overlay");
-    const overlay = document.getElementById(targetId);
-
-    if (overlay) {
-      overlay.classList.add("active");
-
-      // Hide overlay when clicked
-      overlay.addEventListener("click", () => {
-        overlay.classList.remove("active");
-      }, { once: true });
-    }
-  });
-});
-</script>
-
-
-<script>
-document.addEventListener("DOMContentLoaded", () => {
-  const STORAGE_KEY = "favorites";
-
-  // Load saved favorites
-  const saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || "[]");
-
-  // Initialize all sound controls
-  document.querySelectorAll(".soundControl").forEach(control => {
-    const btn = control.querySelector(".favorite-btn");
-    const id = control.id; // must exist!
-
-    if (saved.includes(id)) {
-      btn.classList.add("favorited");
-    }
-
-    btn.addEventListener("click", () => {
-      btn.classList.toggle("favorited");
-
-      const newFavs = Array.from(document.querySelectorAll(".favorite-btn.favorited"))
-        .map(b => b.closest(".soundControl").id);
-
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(newFavs));
-    });
-  });
-});
-</script>
-
-
-
-<script>
-  const circle = document.querySelector('.circle');
-circle.classList.add('glow');
-circle.addEventListener('animationend', () => {
-  circle.classList.remove('glow'); // reset so it can glow again later
-});
-
-</script>
-
-<script>
-  const canvas = document.getElementById("visualizer");
-  const ctx = canvas.getContext("2d");
-
-  function resizeCanvas() {
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-  }
-  window.addEventListener("resize", resizeCanvas);
-  resizeCanvas();
-
-  // Web Audio setup
-  const AudioContext = window.AudioContext || window.webkitAudioContext;
-  const audioCtx = new AudioContext();
-  const analyser = audioCtx.createAnalyser();
-  analyser.fftSize = 256;
-
-  const bufferLength = analyser.frequencyBinCount;
-  const dataArray = new Uint8Array(bufferLength);
-
-  // Connect all <audio> elements
-  document.querySelectorAll(".audioPlayer").forEach(audio => {
-    const src = audioCtx.createMediaElementSource(audio);
-    src.connect(analyser);
-    src.connect(audioCtx.destination);
-  });
-
-  function draw() {
-    requestAnimationFrame(draw);
-    analyser.getByteFrequencyData(dataArray);
-
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-    const barWidth = (canvas.width / bufferLength) * 2.5;
-    let x = 0;
-
-    for (let i = 0; i < bufferLength; i++) {
-      const barHeight = dataArray[i] * 1.2;
-
-      const r = 50 + (i * 2);
-      const g = 200 - (i * 2);
-      const b = 150 + (i % 50);
-      ctx.fillStyle = `rgb(${r},${g},${b})`;
-      ctx.fillRect(x, canvas.height - barHeight, barWidth, barHeight);
-
-      x += barWidth + 1;
-    }
-  }
-
-  draw();
-
-  // Resume audio context on user gesture (required by browsers)
-  document.body.addEventListener("click", () => {
-    if (audioCtx.state === "suspended") {
-      audioCtx.resume();
-    }
-  });
-</script>
-<script>
-document.addEventListener('DOMContentLoaded', () => {
-  const circleEl = document.getElementById('circle');
-  if (!circleEl) return;
-
-  // --- One-time delayed glow (2s) ---
-  // If your CSS already has "animation-delay: 2s" on .circle.glow, set delayMs = 0.
-  const delayMs = 2000; 
-  setTimeout(() => {
-    circleEl.classList.add('glow');
-  }, delayMs);
-
-  circleEl.addEventListener('animationend', (e) => {
-    if (e.animationName === 'glowPulse') {
-      circleEl.classList.remove('glow'); // reset so it can glow again later
-    }
-  });
-
-  // --- Click to expand/collapse ---
-  let startY = 0;
-  let isDragging = false;
-  let didSwipe = false;
-
-  circleEl.addEventListener('click', () => {
-    if (didSwipe) { 
-      // Prevent click toggle right after a swipe
-      didSwipe = false; 
-      return; 
-    }
-    circleEl.classList.toggle('expanded');
-  });
-
-  // --- Swipe up to expand ---
-  circleEl.addEventListener('touchstart', (e) => {
-    startY = e.touches[0].clientY;
-    isDragging = true;
-    didSwipe = false;
-  }, { passive: true });
-
-  circleEl.addEventListener('touchmove', (e) => {
-    if (!isDragging) return;
-    const currentY = e.touches[0].clientY;
-    if (startY - currentY > 50) {
-      circleEl.classList.add('expanded');
-      isDragging = false;
-      didSwipe = true;
-    }
-  }, { passive: true });
-
-  circleEl.addEventListener('touchend', () => {
-    isDragging = false;
-  });
-});
-</script>
-
-
- <script>
-    if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.register('service-worker.js')
-        .then(reg => console.log('Service Worker registered', reg))
-        .catch(err => console.error('Service Worker registration failed:', err));
-    }
-  </script>
-
-
-
-  <script>
-    document.querySelectorAll('.audioPlayer').forEach(audio => {
-      audio.volume = 0;
-      audio.play().catch(e => console.warn('Autoplay failed:', e));
-    });
-
-    document.querySelectorAll('.volumeControl').forEach(slider => {
-      slider.addEventListener('input', () => {
-        const index = slider.dataset.index;
-        const audio = document.querySelector(`.audioPlayer[data-index="${index}"]`);
-        if (audio) {
-          audio.volume = slider.value;
-        }
-      });
-    });
-  </script>
+<script src="scripts.js"></script>
 
 </body>
 </html>
-
