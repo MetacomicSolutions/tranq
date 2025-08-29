@@ -211,6 +211,7 @@ document.body.addEventListener("click", () => {
   }
 });
 
+
 // ===================== INTERACTIVE CIRCLE (SWIPE/CLICK) =====================
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -236,10 +237,9 @@ document.addEventListener('DOMContentLoaded', () => {
   let didSwipe = false;
 
   circleEl.addEventListener('click', () => {
-    if (didSwipe) {
-      // Skip this click because it followed a swipe
+    if (didSwipe) { 
       didSwipe = false; 
-      return;
+      return; 
     }
     circleEl.classList.toggle('expanded');
   });
@@ -248,6 +248,7 @@ document.addEventListener('DOMContentLoaded', () => {
   circleEl.addEventListener('touchstart', (e) => {
     startY = e.touches[0].clientY;
     isDragging = true;
+    didSwipe = false;
   }, { passive: true });
 
   circleEl.addEventListener('touchmove', (e) => {
@@ -257,11 +258,8 @@ document.addEventListener('DOMContentLoaded', () => {
       circleEl.classList.add('expanded');
       isDragging = false;
       didSwipe = true;
-
-      // Prevent the "ghost click" from happening
-      e.preventDefault();
     }
-  });
+  }, { passive: true });
 
   circleEl.addEventListener('touchend', () => {
     isDragging = false;
