@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
   <meta charset="UTF-8" />
   <title>Tranq</title>
@@ -31,15 +31,100 @@
     <meta name="msapplication-TileImage" content="imgs/icon.png">
 
 <style>
+/* Existing CSS */
+.circle {
+position: fixed;
+      bottom: -42px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 400px;
+      height: 180px;
+      background-color: #000000;
+      border-radius: 30%;
+      transition: all 0.4s ease;
+      z-index: 10;
+      cursor: pointer;
+  transition: all 0.4s ease;
+  animation: glowPulse 3s ease-out 2s;
+  z-index: 1000;
+}
 
+.circle.active {
+  top: 0;
+  left: 0;
+  transform: none;
+  width: 100vw;
+  height: 100vh;
+  border-radius: 0;
+  background: rgba(0, 0, 0, 0.9);
+  justify-content: center;
+  align-items: center;
+}
 
+.circle-content {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  /* Added: Set a max-width and internal padding for the content */
+  max-width: 900px;
+  padding: 40px;
+  overflow-y: auto; /* Adds scrolling if content overflows */
+}
 
+.circle.active .circle-content {
+  display: flex;
+}
+
+#dismiss-circle {
+  padding: 10px 20px;
+  border: none;
+  background: white;
+  color: black;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+/* --- */
+
+## Responsive Styles for Phones
+
+Add the following CSS media query to adjust the styles for screens with a maximum width of 600px (a common breakpoint for phones).
+
+```css
+@media (max-width: 600px) {
+  .circle.active .circle-content {
+    /* Adjust font sizes for smaller screens */
+    font-size: 14px;
+    padding: 20px;
+  }
+  
+  .circle.active h2 {
+    font-size: 20px;
+  }
+  
+  .circle.active label {
+    font-size: 14px;
+  }
+  
+  .circle.active input,
+  .circle.active button {
+    font-size: 14px;
+    padding: 8px 16px;
+  }
+  
+  /* Make the image smaller on mobile */
+  .circle.active img {
+    width: 80px;
+    height: 80px;
+  }
+}
 
 </style>
 
 </head>
 <body>
-
+        
 <div class="stars"></div>
 
 
@@ -790,31 +875,97 @@
     </div> 
     -->
 
-  <footer> 
-</footer>
 
 
-<div class="circle" id="circle">
+  <div class="circle" id="circle">
+  <div class="circle-content">
+    <section>
+  <div>
+    <h2>Profile Information</h2>
+    <p>Update your account's profile information and email address.</p>
 
-
-<div style=" width: 100%; margin-top: 20vh; height: 100%;">
-<!--
-            <iframe style="padding: 0; margin: 0; width: 100vw; height: 100%;" src="profile.html" frameborder="0"></iframe>
-            -->
-  <div class="profile-card">
-  <a href="pricing.html">
-    <img src="imgs/users.png" alt="Profile Picture" class="profile-img">
-  </a>
-    <div class="name">John Doe</div>
-    <div class="job-title">Frontend Developer</div>
-    <div style="font-size: 3rem;" class="bio">
-      Passionate about creating interactive applications and experiences on the web. Loves coffee and clean code.
- 
+    <form>
+      <div>
+        <label>Name</label>
+        <input type="text" placeholder="Jane Doe" />
+      </div>
+      <div>
+        <label>Email</label>
+        <input type="email" placeholder="jane.doe@example.com" />
+      </div>
+      <div>
+        <label>Profile Photo</label>
+        <div>
+          <img src="https://i.pravatar.cc/120?img=5" alt="Profile" />
+          <div>
+            <button type="button">Select A New Photo</button>
+            <button type="button">Remove Photo</button>
+          </div>
+        </div>
+      </div>
+      <div>
+        <p>Saved just now.</p>
+        <button>Save</button>
+      </div>
+    </form>
   </div>
+</section>
 
+<section>
+  <div>
+    <h2>Update Password</h2>
+    <p>Ensure your account is using a long, random password to stay secure.</p>
+
+    <form>
+      <div>
+        <label>Current Password</label>
+        <input type="password" />
+      </div>
+      <div>
+        <label>New Password</label>
+        <input type="password" />
+      </div>
+      <div>
+        <label>Confirm Password</label>
+        <input type="password" />
+      </div>
+      <div>
+        <button>Save</button>
+      </div>
+    </form>
+  </div>
+</section>
+
+<section>
+  <div>
+    <h2>Delete Account</h2>
+    <p>Permanently delete your account.</p>
+    <button>Delete Account</button>
+  </div>
+</section>
+    <button id="dismiss-circle">Close</button>
+  </div>
 </div>
 
-</div>
+
+
+<script>
+  const circle = document.getElementById("circle");
+  const dismissBtn = document.getElementById("dismiss-circle");
+
+  // Open on click
+  circle.addEventListener("click", (e) => {
+    if (!circle.classList.contains("active")) {
+      circle.classList.add("active");
+    }
+  });
+
+  // Close on button click
+  dismissBtn.addEventListener("click", (e) => {
+    e.stopPropagation(); // prevent re-triggering circle click
+    circle.classList.remove("active");
+  });
+</script>
 
 
 <script>
@@ -842,5 +993,5 @@ document.addEventListener('click', e => {
 
 <script src="scripts.js"></script>
 
-</body>
+    </body>
 </html>
